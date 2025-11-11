@@ -1,0 +1,355 @@
+.contact {
+  background: var(--background-primary);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.contact--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact__intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+}
+
+.contact__intro p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.contact__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.contact__info-title,
+.contact__form-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.contact__info-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.contact__info-list {
+  margin-bottom: 2.5rem;
+}
+
+.contact__info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background: var(--background-secondary);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.contact__info-item:hover {
+  transform: translateX(5px);
+}
+
+.contact__info-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--gradient-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.contact__info-content h4 {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.contact__info-value {
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.contact__info-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.contact__social h4 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.contact__social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.contact__social-link {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--background-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact__social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--social-color);
+  transform: scale(0);
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+}
+
+.contact__social-link:hover::before {
+  transform: scale(1);
+}
+
+.contact__social-link:hover {
+  color: white;
+  transform: translateY(-3px);
+}
+
+.contact__social-link i {
+  position: relative;
+  z-index: 1;
+}
+
+.contact__form {
+  background: var(--background-secondary);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow-light);
+}
+
+.contact__form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.contact__form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__form-group label {
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.contact__form-group input,
+.contact__form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: var(--background-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+}
+
+.contact__form-group input:focus,
+.contact__form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.contact__form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact__form-submit {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.contact__cta {
+  background: var(--gradient-primary);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact__cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.1;
+  }
+}
+
+.contact__cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.contact__cta h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.contact__cta p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.contact__cta .btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.contact__cta .btn:hover {
+  background: white;
+  color: var(--primary-color);
+  border-color: white;
+}
+
+@media (max-width: 1024px) {
+  .contact__content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contact__form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact__intro {
+    margin-bottom: 3rem;
+  }
+
+  .contact__intro p {
+    font-size: 1.1rem;
+  }
+
+  .contact__content {
+    gap: 2.5rem;
+  }
+
+  .contact__info-item {
+    padding: 1.25rem;
+  }
+
+  .contact__form {
+    padding: 2rem;
+  }
+
+  .contact__form-title,
+  .contact__info-title {
+    font-size: 1.5rem;
+  }
+
+  .contact__social-links {
+    justify-content: center;
+  }
+
+  .contact__cta {
+    padding: 2.5rem;
+  }
+
+  .contact__cta h3 {
+    font-size: 1.75rem;
+  }
+
+  .contact__cta p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__form {
+    padding: 1.5rem;
+  }
+
+  .contact__info-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .contact__social-links {
+    gap: 0.75rem;
+  }
+
+  .contact__social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
+  .contact__cta {
+    padding: 2rem;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}

@@ -1,0 +1,345 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, var(--background-primary) 0%, var(--background-secondary) 100%);
+}
+
+.hero--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.hero__background-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero__background-shape--1 {
+  width: 300px;
+  height: 300px;
+  background: var(--gradient-primary);
+  top: 20%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.hero__background-shape--2 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 2s;
+}
+
+.hero__background-shape--3 {
+  width: 150px;
+  height: 150px;
+  background: var(--gradient-primary);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.hero__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.hero__greeting {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out 0.2s forwards;
+}
+
+.hero__title {
+  margin-bottom: 2rem;
+}
+
+.hero__name {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out 0.4s forwards;
+}
+
+.hero__role {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 500;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out 0.6s forwards;
+}
+
+.hero__description {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out 0.8s forwards;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out 1s forwards;
+}
+
+.hero__visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  animation: slideInRight 0.8s ease-out 0.6s forwards;
+}
+
+.hero__avatar {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.hero__avatar-placeholder {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  color: white;
+  box-shadow: 0 20px 60px var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__avatar-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.hero__tech-stack {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.hero__tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--background-primary);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px var(--shadow-light);
+  transition: transform 0.3s ease;
+  min-width: 80px;
+}
+
+.hero__tech-item:hover {
+  transform: translateY(-5px);
+}
+
+.hero__tech-item i {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.hero__tech-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 1.5s forwards;
+}
+
+.hero__scroll-mouse {
+  width: 24px;
+  height: 40px;
+  border: 2px solid var(--text-light);
+  border-radius: 12px;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.hero__scroll-wheel {
+  width: 4px;
+  height: 8px;
+  background: var(--text-light);
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+  0% {
+    opacity: 1;
+    top: 6px;
+  }
+  100% {
+    opacity: 0;
+    top: 20px;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90vh;
+    text-align: center;
+  }
+
+  .hero__content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero__name {
+    font-size: 2.5rem;
+  }
+
+  .hero__role {
+    font-size: 1.4rem;
+  }
+
+  .hero__description {
+    font-size: 1rem;
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__avatar-placeholder {
+    width: 200px;
+    height: 200px;
+    font-size: 4rem;
+  }
+
+  .hero__tech-stack {
+    justify-content: center;
+  }
+
+  .hero__tech-item {
+    min-width: 60px;
+    padding: 0.75rem;
+  }
+
+  .hero__tech-item i {
+    font-size: 1.5rem;
+  }
+
+  .hero__tech-item span {
+    font-size: 0.8rem;
+  }
+}
