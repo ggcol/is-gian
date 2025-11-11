@@ -1,7 +1,6 @@
 .passions {
   padding: 6rem 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--background-primary);
   position: relative;
   opacity: 0;
   transform: translateY(50px);
@@ -13,24 +12,8 @@
   transform: translateY(0);
 }
 
-.passions::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
-  z-index: 1;
-}
-
-.passions .container {
-  position: relative;
-  z-index: 2;
-}
-
 .passions .section-title {
-  color: white;
+  color: var(--text-primary);
   text-align: center;
   margin-bottom: 1rem;
   font-size: 2.5rem;
@@ -40,7 +23,7 @@
   text-align: center;
   font-size: 1.2rem;
   margin-bottom: 4rem;
-  opacity: 0.9;
+  color: var(--text-secondary);
   font-style: italic;
 }
 
@@ -52,27 +35,27 @@
 }
 
 .passion__card {
-  background: rgba(255, 255, 255, 0.95);
-  color: #333;
+  background: var(--background-secondary);
+  color: var(--text-primary);
   border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px var(--shadow-light);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
 }
 
 .passion__card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px var(--shadow-medium);
 }
 
 .passion__card--featured {
   grid-column: span 2;
-  background: rgba(255, 255, 255, 0.98);
+  background: var(--background-secondary);
 }
 
 .passion__icon {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   color: white;
   width: 70px;
   height: 70px;
@@ -85,14 +68,14 @@
 }
 
 .passion__card h3 {
-  color: #2c3e50;
+  color: var(--text-primary);
   margin-bottom: 1rem;
   font-size: 1.4rem;
   font-weight: 600;
 }
 
 .passion__card p {
-  color: #495057;
+  color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 1.5rem;
 }
@@ -104,7 +87,7 @@
 }
 
 .passion__link {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -135,8 +118,8 @@
 .passion__gear span,
 .passion__flavors span,
 .passion__books span {
-  background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
+  background: var(--background-tertiary);
+  color: var(--primary-color);
   padding: 0.4rem 0.8rem;
   border-radius: 15px;
   font-size: 0.9rem;
@@ -145,20 +128,20 @@
 
 .passions__cta {
   text-align: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--background-tertiary);
   padding: 3rem;
   border-radius: 20px;
-  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
 }
 
 .passions__cta h3 {
-  color: white;
+  color: var(--text-primary);
   margin-bottom: 1rem;
   font-size: 1.8rem;
 }
 
 .passions__cta p {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-secondary);
   font-size: 1.1rem;
   line-height: 1.6;
   max-width: 600px;
