@@ -46,45 +46,66 @@ const Hero = () => {
         <div className="hero__content">
           <div className="hero__text">
             <div className="hero__greeting">
-              <span>👋 Hello, I'm</span>
+              <span>🏍️ Ciao! I'm</span>
             </div>
             <h1 className="hero__title">
               <span className="hero__name">Gianluca Colombo</span>
-              <span className="hero__role">Tech Lead & Solution Architect</span>
+              <span className="hero__role">Tech Leader, Road Explorer & Life Enthusiast</span>
             </h1>
             <p className="hero__description">
-              Experienced Technology Leader with 10+ years in software development, specializing in .NET ecosystems, 
-              cloud architecture, and team leadership. Passionate about delivering scalable solutions and fostering 
-              high-performing development teams.
+              When I'm not architecting software solutions and leading development teams, you'll find me exploring 
+              winding roads on my motorcycle, discovering craft breweries across Europe, or capturing moments through 
+              my lens. Welcome to my world where technology meets passion.
             </p>
             <div className="hero__cta">
-              <button onClick={() => scrollToSection('projects')} className="btn btn-primary">
-                View My Work
+              <button onClick={() => scrollToSection('passions')} className="btn btn-primary">
+                Explore My World
               </button>
               <button onClick={() => scrollToSection('contact')} className="btn btn-outline">
-                Get In Touch
+                Let's Connect
               </button>
             </div>
           </div>
           
           <div className="hero__visual">
             <div className="hero__avatar">
-              <div className="hero__avatar-placeholder">
+              <img 
+                src="/is-gian/images/hero-avatar.jpeg" 
+                alt="Gianluca Colombo" 
+                className="hero__avatar-image"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextElementSibling.style.display = 'flex';
+                }}
+              />
+              <div className="hero__avatar-placeholder" style={{ display: 'none' }}>
                 <i className="fas fa-user"></i>
               </div>
             </div>
-            <div className="hero__tech-stack">
-              <div className="hero__tech-item">
-                <i className="fab fa-microsoft"></i>
-                <span>.NET</span>
+            <div className="hero__interests">
+              <div className="hero__interest-item">
+                <i className="fas fa-motorcycle"></i>
+                <span>Motorcycling</span>
               </div>
-              <div className="hero__tech-item">
-                <i className="fas fa-cloud"></i>
-                <span>Azure</span>
+              <div className="hero__interest-item">
+                <i className="fas fa-beer"></i>
+                <span>Craft Beer</span>
               </div>
-              <div className="hero__tech-item">
-                <i className="fab fa-react"></i>
-                <span>React</span>
+              <div className="hero__interest-item">
+                <i className="fas fa-camera"></i>
+                <span>Photography</span>
+              </div>
+              <div className="hero__interest-item">
+                <i className="fas fa-music"></i>
+                <span>Music</span>
+              </div>
+              <div className="hero__interest-item">
+                <i className="fas fa-code"></i>
+                <span>Technology</span>
+              </div>
+              <div className="hero__interest-item">
+                <i className="fas fa-book"></i>
+                <span>Books</span>
               </div>
             </div>
           </div>

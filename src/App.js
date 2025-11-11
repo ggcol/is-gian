@@ -4,6 +4,8 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import Passions from './components/Passions';
+import ProfessionalJourney from './components/ProfessionalJourney';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
@@ -17,8 +19,10 @@ function App() {
         <main>
           <Hero />
           <About />
-          <Skills />
+          <Passions />
+          <ProfessionalJourney />
           <Projects />
+          <Skills />
           <Contact />
         </main>
         <Footer />

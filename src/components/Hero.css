@@ -138,6 +138,7 @@
   align-items: center;
   opacity: 0;
   animation: slideInRight 0.8s ease-out 0.6s forwards;
+  width: 100%;
 }
 
 .hero__avatar {
@@ -145,9 +146,25 @@
   position: relative;
 }
 
+.hero__avatar-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 20px 60px var(--shadow-medium);
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero__avatar-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 80px var(--shadow-dark);
+}
+
 .hero__avatar-placeholder {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background: var(--gradient-primary);
   display: flex;
@@ -181,37 +198,44 @@
   }
 }
 
-.hero__tech-stack {
+.hero__interests {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 280px;
+  margin: 0 auto;
 }
 
-.hero__tech-item {
+.hero__interest-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
+  gap: 0.4rem;
+  padding: 0.8rem 0.6rem;
   background: var(--background-primary);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px var(--shadow-light);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px var(--shadow-light);
   transition: transform 0.3s ease;
-  min-width: 80px;
+  text-align: center;
+  width: 85px;
+  min-height: 85px;
 }
 
-.hero__tech-item:hover {
+.hero__interest-item:hover {
   transform: translateY(-5px);
 }
 
-.hero__tech-item i {
+.hero__interest-item i {
   font-size: 2rem;
   color: var(--primary-color);
 }
 
-.hero__tech-item span {
-  font-size: 0.9rem;
+.hero__interest-item span {
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--text-primary);
+  line-height: 1.1;
 }
 
 .hero__scroll-indicator {
@@ -320,26 +344,34 @@
     align-items: center;
   }
 
+  .hero__avatar-image {
+    width: 240px;
+    height: 240px;
+  }
+
   .hero__avatar-placeholder {
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
     font-size: 4rem;
   }
 
-  .hero__tech-stack {
-    justify-content: center;
+  .hero__interests {
+    max-width: 200px;
+    gap: 0.8rem;
+    margin: 0 auto;
   }
 
-  .hero__tech-item {
-    min-width: 60px;
-    padding: 0.75rem;
+  .hero__interest-item {
+    padding: 0.6rem 0.4rem;
+    width: 75px;
+    min-height: 75px;
   }
 
-  .hero__tech-item i {
+  .hero__interest-item i {
     font-size: 1.5rem;
   }
 
-  .hero__tech-item span {
+  .hero__interest-item span {
     font-size: 0.8rem;
   }
 }

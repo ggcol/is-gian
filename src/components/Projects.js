@@ -29,8 +29,33 @@ const Projects = () => {
   }, []);
 
   const projects = [
+    // Personal Projects
     {
       id: 1,
+      title: "Casual Roads - Motorcycle Community",
+      description: "Building a social community for motorcycle enthusiasts through Instagram and YouTube. Sharing scenic routes, hidden gems, and the philosophy of embracing the journey over the destination. Growing organically through authentic storytelling and rider connections.",
+      category: "personal",
+      technologies: ["Social Media Strategy", "Content Creation", "Community Building", "Video Production"],
+      image: "https://via.placeholder.com/400x250/667eea/ffffff?text=Casual+Roads",
+      instagram: "https://instagram.com/casual.roads",
+      youtube: "#",
+      featured: true,
+      isPersonal: true
+    },
+    {
+      id: 2,
+      title: "European Brewery Discovery Journey",
+      description: "Personal project documenting craft beer culture across Europe. Combining my pub management experience with travel photography to showcase brewery stories, local traditions, and the craft behind exceptional beer.",
+      category: "personal",
+      technologies: ["Photography", "Content Curation", "Cultural Documentation", "Travel Planning"],
+      image: "https://via.placeholder.com/400x250/f59e0b/ffffff?text=Brewery+Journey",
+      portfolio: "#",
+      featured: false,
+      isPersonal: true
+    },
+    // Professional Projects
+    {
+      id: 3,
       title: "Enterprise Document Management System",
       description: "Led the development of a comprehensive document management platform for healthcare organizations. Implemented secure document storage, workflow automation, and compliance features using .NET Core and Azure.",
       category: "fullstack",
@@ -38,10 +63,11 @@ const Projects = () => {
       image: "https://via.placeholder.com/400x250/3b82f6/ffffff?text=Document+Management",
       github: "#",
       demo: "#",
-      featured: true
+      featured: true,
+      isPersonal: false
     },
     {
-      id: 2,
+      id: 4,
       title: "Financial Trading Platform API",
       description: "Architected and developed high-performance RESTful APIs for a financial trading platform. Handled real-time market data processing and secure transaction management with sub-millisecond response times.",
       category: "backend",
@@ -49,10 +75,11 @@ const Projects = () => {
       image: "https://via.placeholder.com/400x250/06b6d4/ffffff?text=Trading+API",
       github: "#",
       demo: "#",
-      featured: true
+      featured: false,
+      isPersonal: false
     },
     {
-      id: 3,
+      id: 5,
       title: "Cloud Migration Initiative",
       description: "Led the migration of legacy on-premises applications to Azure cloud infrastructure. Implemented containerization, automated deployments, and monitoring solutions reducing operational costs by 40%.",
       category: "devops",
@@ -60,10 +87,11 @@ const Projects = () => {
       image: "https://via.placeholder.com/400x250/10b981/ffffff?text=Cloud+Migration",
       github: "#",
       demo: "#",
-      featured: false
+      featured: false,
+      isPersonal: false
     },
     {
-      id: 4,
+      id: 6,
       title: "E-commerce Inventory Management",
       description: "Built a scalable inventory management system for e-commerce platforms with real-time stock tracking, automated reordering, and multi-warehouse support.",
       category: "fullstack",
@@ -71,21 +99,11 @@ const Projects = () => {
       image: "https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Inventory+System",
       github: "#",
       demo: "#",
-      featured: false
+      featured: false,
+      isPersonal: false
     },
     {
-      id: 5,
-      title: "Enterprise Authentication Service",
-      description: "Designed and implemented a centralized authentication and authorization service supporting SSO, multi-factor authentication, and role-based access control across multiple applications.",
-      category: "architecture",
-      technologies: ["ASP.NET Identity", "OAuth 2.0", "Azure AD", "Entity Framework", "Redis"],
-      image: "https://via.placeholder.com/400x250/f59e0b/ffffff?text=Authentication",
-      github: "#",
-      demo: "#",
-      featured: false
-    },
-    {
-      id: 6,
+      id: 7,
       title: "Healthcare Data Analytics Platform",
       description: "Developed a comprehensive analytics platform for healthcare providers to analyze patient data, generate insights, and improve care outcomes while ensuring HIPAA compliance.",
       category: "fullstack",
@@ -93,12 +111,14 @@ const Projects = () => {
       image: "https://via.placeholder.com/400x250/ec4899/ffffff?text=Healthcare+Analytics",
       github: "#",
       demo: "#",
-      featured: true
+      featured: true,
+      isPersonal: false
     }
   ];
 
   const categories = [
     { id: 'all', label: 'All Projects', icon: 'fas fa-th' },
+    { id: 'personal', label: 'Personal', icon: 'fas fa-heart' },
     { id: 'architecture', label: 'Architecture', icon: 'fas fa-sitemap' },
     { id: 'fullstack', label: 'Full Stack', icon: 'fas fa-layer-group' },
     { id: 'backend', label: 'Backend', icon: 'fas fa-server' },
@@ -114,7 +134,7 @@ const Projects = () => {
   return (
     <section id="projects" className="section projects" ref={projectsRef}>
       <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
+        <h2 className="section-title">Projects & Creations</h2>
         
         {/* Featured Projects */}
         <div className="projects__featured">
@@ -125,12 +145,31 @@ const Projects = () => {
                   <img src={project.image} alt={project.title} />
                   <div className="projects__featured-overlay">
                     <div className="projects__featured-links">
-                      <a href={project.github} className="projects__link projects__link--github">
-                        <i className="fab fa-github"></i>
-                      </a>
-                      <a href={project.demo} className="projects__link projects__link--demo">
-                        <i className="fas fa-external-link-alt"></i>
-                      </a>
+                      {project.github && (
+                        <a href={project.github} className="projects__link projects__link--github">
+                          <i className="fab fa-github"></i>
+                        </a>
+                      )}
+                      {project.instagram && (
+                        <a href={project.instagram} className="projects__link projects__link--instagram">
+                          <i className="fab fa-instagram"></i>
+                        </a>
+                      )}
+                      {project.youtube && (
+                        <a href={project.youtube} className="projects__link projects__link--youtube">
+                          <i className="fab fa-youtube"></i>
+                        </a>
+                      )}
+                      {project.demo && (
+                        <a href={project.demo} className="projects__link projects__link--demo">
+                          <i className="fas fa-external-link-alt"></i>
+                        </a>
+                      )}
+                      {project.portfolio && (
+                        <a href={project.portfolio} className="projects__link projects__link--portfolio">
+                          <i className="fas fa-images"></i>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -175,12 +214,31 @@ const Projects = () => {
                   <img src={project.image} alt={project.title} />
                   <div className="projects__item-overlay">
                     <div className="projects__item-links">
-                      <a href={project.github} className="projects__link">
-                        <i className="fab fa-github"></i>
-                      </a>
-                      <a href={project.demo} className="projects__link">
-                        <i className="fas fa-external-link-alt"></i>
-                      </a>
+                      {project.github && (
+                        <a href={project.github} className="projects__link">
+                          <i className="fab fa-github"></i>
+                        </a>
+                      )}
+                      {project.instagram && (
+                        <a href={project.instagram} className="projects__link">
+                          <i className="fab fa-instagram"></i>
+                        </a>
+                      )}
+                      {project.youtube && (
+                        <a href={project.youtube} className="projects__link">
+                          <i className="fab fa-youtube"></i>
+                        </a>
+                      )}
+                      {project.demo && (
+                        <a href={project.demo} className="projects__link">
+                          <i className="fas fa-external-link-alt"></i>
+                        </a>
+                      )}
+                      {project.portfolio && (
+                        <a href={project.portfolio} className="projects__link">
+                          <i className="fas fa-images"></i>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
