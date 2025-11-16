@@ -23,10 +23,19 @@
 }
 
 .contact__content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  display: flex;
+  justify-content: center;
   margin-bottom: 4rem;
+}
+
+.contact__content--centered {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact__info--full {
+  width: 100%;
 }
 
 .contact__info-title,
@@ -93,15 +102,14 @@
   margin: 0;
 }
 
-.contact__social h4 {
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  font-weight: 600;
+.contact__social {
+  margin-top: 2rem;
 }
 
 .contact__social-links {
   display: flex;
   gap: 1rem;
+  justify-content: center;
 }
 
 .contact__social-link {

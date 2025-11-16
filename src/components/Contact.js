@@ -1,14 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Contact.css';
 
 const Contact = () => {
   const contactRef = useRef();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,22 +27,6 @@ const Contact = () => {
     };
   }, []);
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    // For now, we'll just show an alert
-    alert('Thanks for your message! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
-
   const socialLinks = [
     {
       name: 'LinkedIn',
@@ -63,15 +41,27 @@ const Contact = () => {
       color: '#333'
     },
     {
+      name: 'Discord',
+      icon: 'fab fa-discord',
+      url: 'https://discord.com/users/1253323452471836733',
+      color: '#5865F2'
+    },
+    {
+      name: 'Telegram',
+      icon: 'fab fa-telegram-plane',
+      url: 'https://t.me/theredrover',
+      color: '#0088cc'
+    },
+    {
       name: 'Email',
       icon: 'fas fa-envelope',
       url: 'mailto:colombo.gg@outlook.com',
       color: '#ea4335'
     },
     {
-      name: 'Azure DevOps',
+      name: 'Microsoft Learn',
       icon: 'fab fa-microsoft',
-      url: '#',
+      url: 'https://learn.microsoft.com/en-gb/users/red-9033/transcript/7kwpeul331n89mn',
       color: '#0078d4'
     }
   ];
@@ -110,8 +100,8 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="contact__content">
-          <div className="contact__info">
+        <div className="contact__content contact__content--centered">
+          <div className="contact__info contact__info--full">
             <h3 className="contact__info-title">Let's Connect</h3>
             <p className="contact__info-text">
               Interested in discussing technology, architecture, or potential collaboration? 
@@ -134,7 +124,6 @@ const Contact = () => {
             </div>
 
             <div className="contact__social">
-              <h4>Follow Me</h4>
               <div className="contact__social-links">
                 {socialLinks.map((link, index) => (
                   <a 
@@ -151,83 +140,6 @@ const Contact = () => {
                 ))}
               </div>
             </div>
-          </div>
-
-          <div className="contact__form">
-            <h3 className="contact__form-title">Send me a message</h3>
-            
-            <form onSubmit={handleSubmit} className="contact__form-container">
-              <div className="contact__form-row">
-                <div className="contact__form-group">
-                  <label htmlFor="name">Your Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div className="contact__form-group">
-                  <label htmlFor="email">Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="john@example.com"
-                  />
-                </div>
-              </div>
-
-              <div className="contact__form-group">
-                <label htmlFor="subject">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  required
-                  placeholder="Project collaboration opportunity"
-                />
-              </div>
-
-              <div className="contact__form-group">
-                <label htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  placeholder="Tell me about your project or what you'd like to discuss..."
-                ></textarea>
-              </div>
-
-              <button type="submit" className="btn btn-primary contact__form-submit">
-                <i className="fas fa-paper-plane"></i>
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div className="contact__cta">
-          <div className="contact__cta-content">
-            <h3>Ready to start a project?</h3>
-            <p>
-              I'm currently available for new opportunities and would love to discuss 
-              how we can work together to bring your ideas to life.
-            </p>
-            <a href="mailto:colombo.gg@outlook.com" className="btn btn-outline">
-              Start a Conversation
-            </a>
           </div>
         </div>
       </div>
