@@ -1,16 +1,19 @@
 import React from 'react';
+import featureFlags from '../config/featureFlags';
 import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
-  ];
+    { name: 'Home', href: '#home', flag: 'hero' },
+    { name: 'About', href: '#about', flag: 'about' },
+    { name: 'Passions', href: '#passions', flag: 'passions' },
+    { name: 'Professional', href: '#professional', flag: 'professionalJourney' },
+    { name: 'Projects', href: '#projects', flag: 'projects' },
+    { name: 'Skills', href: '#skills', flag: 'skills' },
+    { name: 'Contact', href: '#contact', flag: 'contact' }
+  ].filter(link => featureFlags[link.flag]);
 
   const socialLinks = [
     {

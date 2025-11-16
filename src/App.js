@@ -10,6 +10,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import featureFlags from './config/featureFlags';
 
 function App() {
   return (
@@ -17,13 +18,13 @@ function App() {
       <div className="App">
         <Header />
         <main>
-          <Hero />
-          <About />
-          <Passions />
-          <ProfessionalJourney />
-          <Projects />
-          <Skills />
-          <Contact />
+          {featureFlags.hero && <Hero />}
+          {featureFlags.about && <About />}
+          {featureFlags.passions && <Passions />}
+          {featureFlags.professionalJourney && <ProfessionalJourney />}
+          {featureFlags.projects && <Projects />}
+          {featureFlags.skills && <Skills />}
+          {featureFlags.contact && <Contact />}
         </main>
         <Footer />
       </div>

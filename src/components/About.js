@@ -61,20 +61,20 @@ const About = () => {
 
           <div className="about__stats">
             <div className="about__stat">
-              <div className="about__stat-number">10+</div>
+              <div className="about__stat-number">15+</div>
               <div className="about__stat-label">Countries Explored</div>
             </div>
             <div className="about__stat">
-              <div className="about__stat-number">50+</div>
-              <div className="about__stat-label">Breweries Visited</div>
-            </div>
-            <div className="about__stat">
-              <div className="about__stat-number">15+</div>
+              <div className="about__stat-number">6+</div>
               <div className="about__stat-label">Years Coding</div>
             </div>
             <div className="about__stat">
+              <div className="about__stat-number">200+</div>
+              <div className="about__stat-label">Breweries Visited</div>
+            </div>
+            <div className="about__stat">
               <div className="about__stat-number">1</div>
-              <div className="about__stat-label">Pub Managed</div>
+              <div className="about__stat-label">Pub Owned</div>
             </div>
           </div>
         </div>

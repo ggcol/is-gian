@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
+import featureFlags from '../config/featureFlags';
 import './Header.css';
 
 const Header = () => {
@@ -28,18 +29,14 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
       <div className="container">
         <div className="header__content">
-          <div className="header__logo">
-            <h2>=</h2>
-          </div>
-          
           <nav className={`header__nav ${isMobileMenuOpen ? 'header__nav--open' : ''}`}>
             <ul className="header__nav-list">
-              <li><button onClick={() => scrollToSection('home')} className="header__nav-link">Home</button></li>
-              <li><button onClick={() => scrollToSection('about')} className="header__nav-link">About</button></li>
-              <li><button onClick={() => scrollToSection('passions')} className="header__nav-link">Passions</button></li>
-              <li><button onClick={() => scrollToSection('professional')} className="header__nav-link">Professional</button></li>
-              <li><button onClick={() => scrollToSection('projects')} className="header__nav-link">Projects</button></li>
-              <li><button onClick={() => scrollToSection('contact')} className="header__nav-link">Contact</button></li>
+              {featureFlags.hero && <li><button onClick={() => scrollToSection('home')} className="header__nav-link">Home</button></li>}
+              {featureFlags.about && <li><button onClick={() => scrollToSection('about')} className="header__nav-link">About</button></li>}
+              {featureFlags.passions && <li><button onClick={() => scrollToSection('passions')} className="header__nav-link">Passions</button></li>}
+              {featureFlags.professionalJourney && <li><button onClick={() => scrollToSection('professional')} className="header__nav-link">Professional</button></li>}
+              {featureFlags.projects && <li><button onClick={() => scrollToSection('projects')} className="header__nav-link">Projects</button></li>}
+              {featureFlags.contact && <li><button onClick={() => scrollToSection('contact')} className="header__nav-link">Contact</button></li>}
             </ul>
           </nav>
 
