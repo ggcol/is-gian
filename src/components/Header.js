@@ -41,6 +41,18 @@ const Header = () => {
           </nav>
 
           <div className="header__actions">
+            {featureFlags.downloadCV && (
+              <a 
+                href="https://stcvita.blob.core.windows.net/cv-main/latest.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="header__cv-link"
+                title="Download CV"
+              >
+                <i className="fas fa-download"></i>
+                <span>CV</span>
+              </a>
+            )}
             <button 
               onClick={toggleTheme}
               className="header__theme-toggle"

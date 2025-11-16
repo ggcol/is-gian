@@ -12,7 +12,8 @@ const Footer = () => {
     { name: 'Professional', href: '#professional', flag: 'professionalJourney' },
     { name: 'Projects', href: '#projects', flag: 'projects' },
     { name: 'Skills', href: '#skills', flag: 'skills' },
-    { name: 'Contact', href: '#contact', flag: 'contact' }
+    { name: 'Contact', href: '#contact', flag: 'contact' },
+    { name: 'Download CV', href: 'https://stcvita.blob.core.windows.net/cv-main/latest.pdf', flag: 'downloadCV', external: true }
   ].filter(link => featureFlags[link.flag]);
 
   const socialLinks = [
@@ -69,12 +70,23 @@ const Footer = () => {
                 <ul className="footer__nav">
                   {quickLinks.map((link, index) => (
                     <li key={index}>
-                      <button 
-                        onClick={() => scrollToSection(link.href)}
-                        className="footer__nav-link"
-                      >
-                        {link.name}
-                      </button>
+                      {link.external ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="footer__nav-link"
+                        >
+                          {link.name}
+                        </a>
+                      ) : (
+                        <button 
+                          onClick={() => scrollToSection(link.href)}
+                          className="footer__nav-link"
+                        >
+                          {link.name}
+                        </button>
+                      )}
                     </li>
                   ))}
                 </ul>

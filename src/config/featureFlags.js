@@ -9,6 +9,7 @@ const featureFlags = {
   projects: false,
   skills: false,
   contact: true,
+  downloadCV: true,
 };
 
 export default featureFlags;
