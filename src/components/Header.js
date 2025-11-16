@@ -29,7 +29,7 @@ const Header = () => {
       <div className="container">
         <div className="header__content">
           <div className="header__logo">
-            <h2>GC</h2>
+            <h2>=</h2>
           </div>
           
           <nav className={`header__nav ${isMobileMenuOpen ? 'header__nav--open' : ''}`}>

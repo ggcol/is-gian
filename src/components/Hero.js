@@ -34,8 +34,15 @@ const Hero = () => {
     }
   };
 
+  const heroBgStyle = {
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${process.env.PUBLIC_URL}/images/hero-bg.png)`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat'
+  };
+
   return (
-    <section id="home" className="hero" ref={heroRef}>
+    <section id="home" className="hero" ref={heroRef} style={heroBgStyle}>
       <div className="hero__background">
         <div className="hero__background-shape hero__background-shape--1"></div>
         <div className="hero__background-shape hero__background-shape--2"></div>
@@ -46,7 +53,7 @@ const Hero = () => {
         <div className="hero__content">
           <div className="hero__text">
             <div className="hero__greeting">
-              <span>🏍️ Ciao! I'm</span>
+              <span>👋🏼 Hey! I'm</span>
             </div>
             <h1 className="hero__title">
               <span className="hero__name">Gianluca Colombo</span>
@@ -84,6 +91,10 @@ const Hero = () => {
             </div>
             <div className="hero__interests">
               <div className="hero__interest-item">
+                <i className="fas fa-code"></i>
+                <span>Technology</span>
+              </div>
+              <div className="hero__interest-item">
                 <i className="fas fa-motorcycle"></i>
                 <span>Motorcycling</span>
               </div>
@@ -98,10 +109,6 @@ const Hero = () => {
               <div className="hero__interest-item">
                 <i className="fas fa-music"></i>
                 <span>Music</span>
-              </div>
-              <div className="hero__interest-item">
-                <i className="fas fa-code"></i>
-                <span>Technology</span>
               </div>
               <div className="hero__interest-item">
                 <i className="fas fa-book"></i>
