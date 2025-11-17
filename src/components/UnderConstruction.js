@@ -34,7 +34,9 @@ const UnderConstruction = () => {
             </div>
             <div className="construction-banner__text">
               <strong>Work in Progress</strong>
-              <span>This site is under construction. Some sections may not be complete yet.</span>
+              <span>This site is under construction. Some sections may not be complete yet.
+                Sorry guys 🥲!
+              </span>
             </div>
           </>
         )}

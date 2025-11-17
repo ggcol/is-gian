@@ -148,9 +148,14 @@
 .hero__avatar {
   margin-bottom: 2rem;
   position: relative;
+  width: 300px;
+  height: 300px;
 }
 
 .hero__avatar-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 300px;
   height: 300px;
   border-radius: 50%;
@@ -158,7 +163,13 @@
   object-position: center;
   box-shadow: 0 20px 60px var(--shadow-medium);
   border: 4px solid rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero__avatar-image--active {
+  opacity: 1;
+  z-index: 1;
 }
 
 .hero__avatar-image:hover {
@@ -346,6 +357,11 @@
   .hero__cta {
     flex-direction: column;
     align-items: center;
+  }
+
+  .hero__avatar {
+    width: 240px;
+    height: 240px;
   }
 
   .hero__avatar-image {

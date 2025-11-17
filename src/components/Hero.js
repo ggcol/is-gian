@@ -1,8 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Hero.css';
 
 const Hero = () => {
   const heroRef = useRef();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const avatarImages = [
+    '/is-gian/images/hero-avatars/avatar-1.jpeg',
+    '/is-gian/images/hero-avatars/avatar-2.jpg',
+    '/is-gian/images/hero-avatars/avatar-3.jpg',
+    '/is-gian/images/hero-avatars/avatar-4.png',
+    '/is-gian/images/hero-avatars/avatar-5.png',
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,6 +36,16 @@ const Hero = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        (prevIndex + 1) % avatarImages.length
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [avatarImages.length]);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -48,7 +67,7 @@ const Hero = () => {
         <div className="hero__background-shape hero__background-shape--2"></div>
         <div className="hero__background-shape hero__background-shape--3"></div>
       </div>
-      
+
       <div className="container">
         <div className="hero__content">
           <div className="hero__text">
@@ -60,9 +79,13 @@ const Hero = () => {
               <span className="hero__role">Tech Leader, Road Explorer & Life Enthusiast</span>
             </h1>
             <p className="hero__description">
-              When I'm not architecting software solutions and leading development teams, you'll find me exploring 
+              {/* When I'm not architecting software solutions and leading development teams, you'll find me exploring 
               winding roads on my motorcycle, discovering craft breweries across Europe, or capturing moments through 
-              my lens. Welcome to my world where technology meets passion.
+              my lens. Welcome to my world where technology meets passion. */}
+
+              Architecting solutions and leading development teams may be quite stressfull, and when that happens,
+              a fresh breath of open, winding, road or the perfect pint are often providing the right balance.
+              Then, back to code!
             </p>
             <div className="hero__cta">
               <button onClick={() => scrollToSection('passions')} className="btn btn-primary">
@@ -73,18 +96,20 @@ const Hero = () => {
               </button>
             </div>
           </div>
-          
+
           <div className="hero__visual">
             <div className="hero__avatar">
-              <img 
-                src="/is-gian/images/hero-avatar.jpeg" 
-                alt="Gianluca Colombo" 
-                className="hero__avatar-image"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextElementSibling.style.display = 'flex';
-                }}
-              />
+              {avatarImages.map((imgSrc, index) => (
+                <img
+                  key={index}
+                  src={imgSrc}
+                  alt={`Gianluca Colombo ${index + 1}`}
+                  className={`hero__avatar-image ${index === currentImageIndex ? 'hero__avatar-image--active' : ''}`}
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+              ))}
               <div className="hero__avatar-placeholder" style={{ display: 'none' }}>
                 <i className="fas fa-user"></i>
               </div>
@@ -118,7 +143,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="hero__scroll-indicator">
         <div className="hero__scroll-mouse">
           <div className="hero__scroll-wheel"></div>
