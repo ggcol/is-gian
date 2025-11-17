@@ -10,6 +10,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import UnderConstruction from './components/UnderConstruction';
 import featureFlags from './config/featureFlags';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           {featureFlags.contact && <Contact />}
         </main>
         <Footer />
+        <UnderConstruction />
       </div>
     </ThemeProvider>
   );

@@ -1,0 +1,137 @@
+.construction-banner {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  animation: slideInRight 0.5s ease-out;
+  transition: all 0.3s ease;
+}
+
+.construction-banner--minimized {
+  max-width: 60px;
+  border-radius: 30px;
+}
+
+.construction-banner__content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.construction-banner--minimized .construction-banner__content {
+  padding: 0.75rem;
+  justify-content: center;
+}
+
+.construction-banner__icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.construction-banner__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.construction-banner__text strong {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.construction-banner__text span {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.construction-banner__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.construction-banner--minimized .construction-banner__actions {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
+.construction-banner__btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.construction-banner__btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.construction-banner__btn--close:hover {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .construction-banner {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+
+  .construction-banner--minimized {
+    left: auto;
+    max-width: 60px;
+  }
+
+  .construction-banner__text {
+    font-size: 0.875rem;
+  }
+
+  .construction-banner__text strong {
+    font-size: 0.9rem;
+  }
+
+  .construction-banner__text span {
+    font-size: 0.8rem;
+  }
+}
