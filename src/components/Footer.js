@@ -9,7 +9,7 @@ const Footer = () => {
     { name: 'Home', href: '#home', flag: 'hero' },
     { name: 'About', href: '#about', flag: 'about' },
     { name: 'Passions', href: '#passions', flag: 'passions' },
-    { name: 'Professional', href: '#professional', flag: 'professionalJourney' },
+    { name: 'Professional', href: '#professional', flag: 'professionalSnapshot' },
     { name: 'Projects', href: '#projects', flag: 'projects' },
     { name: 'Skills', href: '#skills', flag: 'skills' },
     { name: 'Contact', href: '#contact', flag: 'contact' },

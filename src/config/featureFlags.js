@@ -5,7 +5,7 @@ const featureFlags = {
   hero: true,
   about: false,
   passions: false,
-  professionalJourney: true,
+  professionalSnapshot: true,
   projects: false,
   skills: false,
   contact: true,

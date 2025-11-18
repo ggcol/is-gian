@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import './ProfessionalJourney.css';
+import './ProfessionalSnapshot.css';
 
-const ProfessionalJourney = () => {
+const ProfessionalSnapshot = () => {
   const journeyRef = useRef();
 
   useEffect(() => {
@@ -30,88 +30,51 @@ const ProfessionalJourney = () => {
   return (
     <section id="professional" className="section journey" ref={journeyRef}>
       <div className="container">
-        <h2 className="section-title">Professional Journey</h2>
+        <h2 className="section-title">Professional Snapshot</h2>
         
         <div className="journey__content">
           <div className="journey__intro">
             <p>
-              With over <strong>10 years in technology</strong>, I've evolved from a passionate developer 
-              into a <strong>Tech Lead and Solution Architect</strong> who thrives on building great teams 
-              and scalable solutions.
+              From <strong>passionate explorer</strong> to <strong>Tech Lead & Solution Architect</strong> who 
+              thrives on building great teams and scalable solutions.
             </p>
           </div>
 
-          <div className="journey__highlights">
-            <div className="journey__highlight">
-              <div className="journey__highlight-icon">
-                <i className="fas fa-users"></i>
-              </div>
-              <div className="journey__highlight-content">
-                <h3>Team Leadership</h3>
-                <p>Leading cross-functional teams and mentoring developers to achieve excellence</p>
-              </div>
-            </div>
+          <div className="journey__layout">
+            <div className="journey__main">
+              <div className="journey__highlights">
+                <div className="journey__highlight">
+                  <div className="journey__highlight-icon">
+                    <i className="fas fa-users"></i>
+                  </div>
+                  <div className="journey__highlight-content">
+                    <h3>Team Leadership</h3>
+                    <p>Leading cross-functional teams and mentoring developers to achieve excellence</p>
+                  </div>
+                </div>
 
-            <div className="journey__highlight">
-              <div className="journey__highlight-icon">
-                <i className="fas fa-cogs"></i>
-              </div>
-              <div className="journey__highlight-content">
-                <h3>Solution Architecture</h3>
-                <p>Designing scalable systems for finance, healthcare, and e-commerce</p>
-              </div>
-            </div>
+                <div className="journey__highlight">
+                  <div className="journey__highlight-icon">
+                    <i className="fas fa-cogs"></i>
+                  </div>
+                  <div className="journey__highlight-content">
+                    <h3>Solution Architecture</h3>
+                    <p>Designing scalable systems for finance, healthcare, and e-commerce</p>
+                  </div>
+                </div>
 
-            <div className="journey__highlight">
-              <div className="journey__highlight-icon">
-                <i className="fab fa-microsoft"></i>
+                <div className="journey__highlight">
+                  <div className="journey__highlight-icon">
+                    <i className="fab fa-microsoft"></i>
+                  </div>
+                  <div className="journey__highlight-content">
+                    <h3>.NET & Azure Expert</h3>
+                    <p>Deep expertise in Microsoft technologies and cloud solutions</p>
+                  </div>
+                </div>
               </div>
-              <div className="journey__highlight-content">
-                <h3>.NET & Azure Expert</h3>
-                <p>Deep expertise in Microsoft technologies and cloud solutions</p>
-              </div>
-            </div>
-          </div>
 
-          <div className="journey__tech-stack">
-            <h3>Technologies I Love Working With</h3>
-            <div className="journey__tech-grid">
-              <div className="journey__tech-item">
-                <i className="fab fa-microsoft"></i>
-                <span>.NET</span>
-              </div>
-              <div className="journey__tech-item">
-                <i className="fab fa-apple"></i>
-                <span>Apple</span>
-              </div>
-              <div className="journey__tech-item">
-                <i className="fas fa-cloud"></i>
-                <span>Azure</span>
-              </div>
-              <div className="journey__tech-item">
-                <i className="fab fa-aws"></i>
-                <span>AWS</span>
-              </div>
-              <div className="journey__tech-item">
-                <i className="fab fa-git-alt"></i>
-                <span>Git</span>
-              </div>
-              <div className="journey__tech-item">
-                <i className="fab fa-docker"></i>
-                <span>Docker</span>
-              </div>
-              <div className="journey__tech-item">
-                <i className="fas fa-dharmachakra"></i>
-                <span>Kubernetes</span>
-              </div>
-              <div className="journey__tech-item">
-                <i className="fas fa-database"></i>
-                <span>SQL Server</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="journey__certifications">
+              <div className="journey__certifications">
             <h3>Certifications</h3>
             <div className="journey__cert-grid">
               <a 
@@ -243,10 +206,74 @@ const ProfessionalJourney = () => {
               </a>
             </div>
           </div>
+            </div>
+
+            <div className="journey__sidebar">
+              <div className="journey__tech-stack">
+                <div className="journey__tech-header">
+                  <i className="fas fa-heart"></i>
+                </div>
+                <div className="journey__tech-grid">
+                  <div className="journey__tech-item">
+                    <i className="fab fa-microsoft"></i>
+                    <span>.NET</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fab fa-apple"></i>
+                    <span>Apple</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fas fa-sync-alt"></i>
+                    <span>Agile Practice</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fas fa-cloud"></i>
+                    <span>Azure</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fab fa-aws"></i>
+                    <span>AWS</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fab fa-git-alt"></i>
+                    <span>Git</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fab fa-github"></i>
+                    <span>GitHub</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fas fa-infinity"></i>
+                    <span>DevOps</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fas fa-vial"></i>
+                    <span>TDD</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fab fa-docker"></i>
+                    <span>Docker</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fas fa-dharmachakra"></i>
+                    <span>Kubernetes</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fas fa-database"></i>
+                    <span>SQL Server</span>
+                  </div>
+                  <div className="journey__tech-item">
+                    <i className="fas fa-robot"></i>
+                    <span>Agentic Development</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default ProfessionalJourney;
+export default ProfessionalSnapshot;

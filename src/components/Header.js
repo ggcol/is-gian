@@ -34,7 +34,7 @@ const Header = () => {
               {featureFlags.hero && <li><button onClick={() => scrollToSection('home')} className="header__nav-link">Home</button></li>}
               {featureFlags.about && <li><button onClick={() => scrollToSection('about')} className="header__nav-link">About</button></li>}
               {featureFlags.passions && <li><button onClick={() => scrollToSection('passions')} className="header__nav-link">Passions</button></li>}
-              {featureFlags.professionalJourney && <li><button onClick={() => scrollToSection('professional')} className="header__nav-link">Professional</button></li>}
+              {featureFlags.professionalSnapshot && <li><button onClick={() => scrollToSection('professional')} className="header__nav-link">Professional</button></li>}
               {featureFlags.projects && <li><button onClick={() => scrollToSection('projects')} className="header__nav-link">Projects</button></li>}
               {featureFlags.contact && <li><button onClick={() => scrollToSection('contact')} className="header__nav-link">Contact</button></li>}
             </ul>
