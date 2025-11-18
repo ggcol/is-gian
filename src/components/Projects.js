@@ -22,7 +22,7 @@ const WorkedWithCarousel = () => (
       {[...workedWithLogos, ...workedWithLogos].map((logo, idx) => (
         <div className="worked-with-logo" key={idx}>
           <a href={logo.url} target="_blank" rel="noopener noreferrer">
-            <img src={process.env.PUBLIC_URL + "/images/worked-with/" + logo.src} alt={logo.src.replace('.png','')} draggable="false" />
+            <img src={process.env.PUBLIC_URL + "/images/worked-with/" + logo.src} alt={logo.src.replace('.png', '')} draggable="false" />
           </a>
         </div>
       ))}
@@ -60,41 +60,42 @@ const Projects = () => {
   const workProjects = [
     {
       id: 1,
-      title: "Vivaldi Group",
-      description: "Enterprise-level digital transformation project for Vivaldi Group, implementing modern cloud infrastructure and scalable solutions.",
-      tags: [".NET", "Azure", "Microservices", "DevOps"],
-      link: null
-    },
-    {
-      id: 2,
       title: "Wolford Integration Layer",
-      description: "Integration layer connecting Wolford's e-commerce platform with Newton ERP system, enabling seamless data synchronization and real-time inventory management.",
-      tags: [".NET Core", "Azure", "REST API", "Integration"],
+      description: "Wolford Integration Layer is a cloud-native enterprise integration platform orchestrating ~200 .NET microservices and Azure Functions on AKS, connecting ERP, logistics, finance, retail and e-commerce domains. It delivers resilient distributed messaging via Azure Service Bus (migrated from a legacy broker, eliminating ~€20K annual licensing), unified observability through Application Insights, and governed delivery with structured Git strategy, automated CI/CD (GitHub Actions) and Clean Architecture conventions, providing predictable releases and a scalable foundation for ongoing ERP modernization.",
+      tags: [".NET", "AKS", "Azure Functions", "Azure Service Bus", "SQL Server", "Microservices", "CI/CD"],
       image: process.env.PUBLIC_URL + "/images/project/work/wolford-newton.png",
       link: null
     },
     {
-      id: 3,
+      id: 2,
       title: "Pirelli Design Suite",
-      description: "Advanced design and configuration platform for Pirelli P Zero tires, allowing customers to customize and visualize tire designs in real-time.",
-      tags: ["Angular", ".NET", "Azure", "3D Visualization"],
+      description: "Pirelli Design Suite is a next-generation CAD platform developed for advanced tire design in the R&D department. The application leverages .NET, WPF, and DevDept Eyeshot for high-performance 3D modeling, enabling researchers and engineers to create and visualize tire prototypes with precision. Through architectural and performance optimizations, during platform re-engineering, we've been able to achieve 80% reduction in memory usage, ensuring scalability and maintainability for complex design workflows. Integrated technologies include WCF, MongoDB, Windows IIS, and robust quality assurance with DotMemory and SonarQube.",
+      tags: [".NET", "WPF", "WCF", "MongoDB", "IIS", "DevDept Eyeshot", "DotMemory", "SonarQube", "3D Modeling"],
       image: process.env.PUBLIC_URL + "/images/project/work/pirelli-p-zero.jpg",
       link: null
     },
     {
-      id: 4,
-      title: "Documentary Management",
-      description: "Digital archive management system for Pirelli's historical documents and heritage materials, featuring advanced search and preservation capabilities.",
-      tags: [".NET", "Azure Storage", "Document Management", "Search"],
-      image: process.env.PUBLIC_URL + "/images/project/work/pirelli-logo.png",
-      link: null
-    },
-    {
-      id: 5,
+      id: 3,
       title: "ISTA",
       description: "BMW ISTA is a comprehensive vehicle diagnostic platform used by BMW AG to support complex automotive workflows. Built for international teams working in agile environments, ISTA delivers robust diagnostics, service information, and workflow automation for modern vehicles. The system emphasizes clean architecture and maintainability, leveraging .NET, WPF, and Azure to ensure reliability and scalability.",
       tags: [".NET", "WPF", "WCF", "SQLite", "Azure", "Agile (LeSS/Scrum)", "Jenkins", "Atlassian Suite"],
       image: process.env.PUBLIC_URL + "/images/project/work/bmw-ista.jpeg",
+      link: null
+    },
+    {
+      id: 4,
+      title: "Artigiali / Linea Bianca Group",
+      description: "Post-acquisition migration initiative aligning Linea Bianca's established operational tooling with Artigiali's evolving organization. Focused on consolidating services, a mobile application, and supporting server infrastructure while modernizing data access and workflow integration. This project is in early discovery and will be updated as architecture decisions progress. Current scope centers on re-hosting and adapting existing assets for scalability, maintainability and unified governance.",
+      tags: [".NET", "EntityFramework", "Angular", "MySQL", "Ubuntu", "Mobile", "Migration"],
+      image: process.env.PUBLIC_URL + "/images/project/work/artigiali.jpg",
+      link: null
+    },
+    {
+      id: 5,
+      title: "Documentary Management",
+      description: "Documentary Management is a scalable ASP.NET Core MVC application designed to modernize and replicate Pirelli's documentary workflow. Integrating with SharePoint Online via Microsoft Graph API, the platform provides seamless access and management of historical documents in a robust, up-to-date architectural environment.",
+      tags: [".NET", "ASP.NET Core MVC", "MS Graph API", "SharePoint Online", "IIS", "MongoDB", "Document Management"],
+      image: process.env.PUBLIC_URL + "/images/project/work/pirelli-logo.png",
       link: null
     }
   ];
@@ -103,7 +104,7 @@ const Projects = () => {
     {
       id: 1,
       title: "ASureBus",
-      description: "Open source service bus implementation for Azure, providing reliable message processing and event-driven architecture patterns.",
+      description: "Open source .NET library simplifying Azure Service Bus with APIs for publish/subscribe, message handlers, and sagas. Actively used in production. Built in C#, using ASB SDKs, distributed via NuGet.",
       tags: [".NET", "Azure Service Bus", "Open Source", "Messaging"],
       image: process.env.PUBLIC_URL + "/images/project/oss/asurebus.png",
       link: "https://github.com/ggcol/ASureBus"
@@ -123,11 +124,18 @@ const Projects = () => {
       id: 1,
       title: "Casual Roads - Motorcycle Community",
       description: "Building a social community for motorcycle enthusiasts through Instagram and YouTube. Sharing scenic routes, hidden gems, and the philosophy of embracing the journey over the destination.",
-      tags: ["Social Media", "Content Creation", "Community", "Video Production"],
-      image: process.env.PUBLIC_URL + "/images/projects/casual-roads.jpg",
-      link: "https://instagram.com/casual.roads"
+      tags: ["Social Media", "Content Creation", "Community", "Video Production", "Personal"],
+      image: process.env.PUBLIC_URL + "/images/project/personal-ss/casual-roads.jpg",
+      link: "https://www.instagram.com/casualroads"
     },
-    // Add more personal projects here
+    {
+      id: 2,
+      title: "Drop",
+      description: "Super-secret! GCP stack with react native and expo",
+      tags: ["GCP", "React Native", "Expo", "Super Secret"],
+      image: process.env.PUBLIC_URL + "/images/project/personal-ss/drop.jpg",
+      link: null
+    },
   ];
 
   const ProjectCard = ({ project }) => (
@@ -148,9 +156,9 @@ const Projects = () => {
           </div>
         )}
         {project.link && (
-          <a 
-            href={project.link} 
-            target="_blank" 
+          <a
+            href={project.link}
+            target="_blank"
             rel="noopener noreferrer"
             className="project-card__link"
           >
@@ -183,18 +191,18 @@ const Projects = () => {
         <h2 className="section-title">Projects</h2>
         <div className="worked-with-title">Worked with</div>
         <WorkedWithCarousel />
-        <ProjectSection 
-          title="Work Projects" 
+        <ProjectSection
+          title="Main Work Projects"
           projects={workProjects}
           icon="fas fa-briefcase"
         />
-        <ProjectSection 
-          title="OSS Projects" 
+        <ProjectSection
+          title="OSS Projects"
           projects={ossProjects}
           icon="fas fa-code-branch"
         />
-        <ProjectSection 
-          title="Personal Projects" 
+        <ProjectSection
+          title="Personal / Super Secret Projects"
           projects={personalProjects}
           icon="fas fa-heart"
         />

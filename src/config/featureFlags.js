@@ -6,7 +6,7 @@ const featureFlags = {
   about: false,
   passions: false,
   professionalSnapshot: true, //OK
-  projects: false,
+  projects: true,
   skills: false,
   contact: true, //OK
   downloadCV: true, //OK
