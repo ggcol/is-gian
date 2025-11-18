@@ -11,6 +11,7 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import UnderConstruction from './components/UnderConstruction';
+import CollapsibleSection from './components/CollapsibleSection';
 import featureFlags from './config/featureFlags';
 
 function App() {
@@ -20,11 +21,11 @@ function App() {
         <Header />
         <main>
           {featureFlags.hero && <Hero />}
-          {featureFlags.about && <About />}
-          {featureFlags.passions && <Passions />}
-          {featureFlags.professionalSnapshot && <ProfessionalSnapshot />}
-          {featureFlags.projects && <Projects />}
-          {featureFlags.skills && <Skills />}
+          {featureFlags.about && <CollapsibleSection title="About Me"><About /></CollapsibleSection>}
+          {featureFlags.passions && <CollapsibleSection title="My Passions"><Passions /></CollapsibleSection>}
+          {featureFlags.professionalSnapshot && <CollapsibleSection title="Professional Snapshot"><ProfessionalSnapshot /></CollapsibleSection>}
+          {featureFlags.projects && <CollapsibleSection title="Projects"><Projects /></CollapsibleSection>}
+          {featureFlags.skills && <CollapsibleSection title="Skills"><Skills /></CollapsibleSection>}
           {featureFlags.contact && <Contact />}
         </main>
         <Footer />

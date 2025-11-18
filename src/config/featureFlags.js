@@ -2,14 +2,14 @@
 // Set to true to show the section, false to hide it
 
 const featureFlags = {
-  hero: true,
+  hero: true, //OK
   about: false,
   passions: false,
-  professionalSnapshot: true,
+  professionalSnapshot: true, //OK
   projects: false,
   skills: false,
-  contact: true,
-  downloadCV: true,
+  contact: true, //OK
+  downloadCV: true, //OK
 };
 
 export default featureFlags;
