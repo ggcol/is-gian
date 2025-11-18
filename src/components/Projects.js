@@ -1,9 +1,38 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+
+const workedWithLogos = [
+  { src: "1nnovation.png", url: "https://1nnovation.net" },
+  { src: "accenture.png", url: "https://www.accenture.com/" },
+  { src: "akkodis.png", url: "https://www.akkodis.com/it" },
+  { src: "artigiali.png", url: "https://www.artigiali.it" },
+  { src: "avanade.png", url: "https://www.avanade.com/" },
+  { src: "blazar.png", url: "https://blazargroup.com/it/" },
+  { src: "bmw.png", url: "https://www.bmw.com/en/index.html" },
+  { src: "linea-bianca.png", url: "https://www.lineabiancasrl.it" },
+  { src: "lobra.png", url: "https://www.lobrafutura.com" },
+  { src: "mmsolutions.png", url: "https://www.mmsolutionssrl.com" },
+  { src: "pirelli.png", url: "https://www.pirelli.com/" },
+  { src: "reply-cluster.png", url: "https://www.reply.com/cluster-reply-italy/it" },
+  { src: "wolford.png", url: "https://company.wolford.com/investor-relations-2/corporate-governance/" },
+];
+
+const WorkedWithCarousel = () => (
+  <div className="worked-with-carousel">
+    <div className="worked-with-track">
+      {[...workedWithLogos, ...workedWithLogos].map((logo, idx) => (
+        <div className="worked-with-logo" key={idx}>
+          <a href={logo.url} target="_blank" rel="noopener noreferrer">
+            <img src={process.env.PUBLIC_URL + "/images/worked-with/" + logo.src} alt={logo.src.replace('.png','')} draggable="false" />
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+);
 import './Projects.css';
 
 const Projects = () => {
   const projectsRef = useRef();
-  const [filter, setFilter] = useState('all');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,233 +57,147 @@ const Projects = () => {
     };
   }, []);
 
-  const projects = [
-    // Personal Projects
+  const workProjects = [
     {
       id: 1,
-      title: "Casual Roads - Motorcycle Community",
-      description: "Building a social community for motorcycle enthusiasts through Instagram and YouTube. Sharing scenic routes, hidden gems, and the philosophy of embracing the journey over the destination. Growing organically through authentic storytelling and rider connections.",
-      category: "personal",
-      technologies: ["Social Media Strategy", "Content Creation", "Community Building", "Video Production"],
-      image: "https://via.placeholder.com/400x250/667eea/ffffff?text=Casual+Roads",
-      instagram: "https://instagram.com/casual.roads",
-      youtube: "#",
-      featured: true,
-      isPersonal: true
+      title: "Vivaldi Group",
+      description: "Enterprise-level digital transformation project for Vivaldi Group, implementing modern cloud infrastructure and scalable solutions.",
+      tags: [".NET", "Azure", "Microservices", "DevOps"],
+      link: null
     },
     {
       id: 2,
-      title: "European Brewery Discovery Journey",
-      description: "Personal project documenting craft beer culture across Europe. Combining my pub management experience with travel photography to showcase brewery stories, local traditions, and the craft behind exceptional beer.",
-      category: "personal",
-      technologies: ["Photography", "Content Curation", "Cultural Documentation", "Travel Planning"],
-      image: "https://via.placeholder.com/400x250/f59e0b/ffffff?text=Brewery+Journey",
-      portfolio: "#",
-      featured: false,
-      isPersonal: true
+      title: "Wolford Integration Layer",
+      description: "Integration layer connecting Wolford's e-commerce platform with Newton ERP system, enabling seamless data synchronization and real-time inventory management.",
+      tags: [".NET Core", "Azure", "REST API", "Integration"],
+      image: process.env.PUBLIC_URL + "/images/project/work/wolford-newton.png",
+      link: null
     },
-    // Professional Projects
     {
       id: 3,
-      title: "Enterprise Document Management System",
-      description: "Led the development of a comprehensive document management platform for healthcare organizations. Implemented secure document storage, workflow automation, and compliance features using .NET Core and Azure.",
-      category: "fullstack",
-      technologies: [".NET Core", "Azure SQL", "Angular", "Azure Storage", "SignalR"],
-      image: "https://via.placeholder.com/400x250/3b82f6/ffffff?text=Document+Management",
-      github: "#",
-      demo: "#",
-      featured: true,
-      isPersonal: false
+      title: "Pirelli Design Suite",
+      description: "Advanced design and configuration platform for Pirelli P Zero tires, allowing customers to customize and visualize tire designs in real-time.",
+      tags: ["Angular", ".NET", "Azure", "3D Visualization"],
+      image: process.env.PUBLIC_URL + "/images/project/work/pirelli-p-zero.jpg",
+      link: null
     },
     {
       id: 4,
-      title: "Financial Trading Platform API",
-      description: "Architected and developed high-performance RESTful APIs for a financial trading platform. Handled real-time market data processing and secure transaction management with sub-millisecond response times.",
-      category: "backend",
-      technologies: ["ASP.NET Core", "Entity Framework", "Redis", "SQL Server", "Azure"],
-      image: "https://via.placeholder.com/400x250/06b6d4/ffffff?text=Trading+API",
-      github: "#",
-      demo: "#",
-      featured: false,
-      isPersonal: false
+      title: "Documentary Management",
+      description: "Digital archive management system for Pirelli's historical documents and heritage materials, featuring advanced search and preservation capabilities.",
+      tags: [".NET", "Azure Storage", "Document Management", "Search"],
+      image: process.env.PUBLIC_URL + "/images/project/work/pirelli-logo.png",
+      link: null
     },
     {
       id: 5,
-      title: "Cloud Migration Initiative",
-      description: "Led the migration of legacy on-premises applications to Azure cloud infrastructure. Implemented containerization, automated deployments, and monitoring solutions reducing operational costs by 40%.",
-      category: "devops",
-      technologies: ["Azure DevOps", "Docker", "Azure App Service", "ARM Templates", "Application Insights"],
-      image: "https://via.placeholder.com/400x250/10b981/ffffff?text=Cloud+Migration",
-      github: "#",
-      demo: "#",
-      featured: false,
-      isPersonal: false
-    },
-    {
-      id: 6,
-      title: "E-commerce Inventory Management",
-      description: "Built a scalable inventory management system for e-commerce platforms with real-time stock tracking, automated reordering, and multi-warehouse support.",
-      category: "fullstack",
-      technologies: ["ASP.NET Core", "Entity Framework Core", "Angular", "Azure SQL", "Azure Service Bus"],
-      image: "https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Inventory+System",
-      github: "#",
-      demo: "#",
-      featured: false,
-      isPersonal: false
-    },
-    {
-      id: 7,
-      title: "Healthcare Data Analytics Platform",
-      description: "Developed a comprehensive analytics platform for healthcare providers to analyze patient data, generate insights, and improve care outcomes while ensuring HIPAA compliance.",
-      category: "fullstack",
-      technologies: [".NET Core", "Azure Synapse", "Power BI", "Angular", "Azure Security"],
-      image: "https://via.placeholder.com/400x250/ec4899/ffffff?text=Healthcare+Analytics",
-      github: "#",
-      demo: "#",
-      featured: true,
-      isPersonal: false
+      title: "ISTA",
+      description: "BMW ISTA is a comprehensive vehicle diagnostic platform used by BMW AG to support complex automotive workflows. Built for international teams working in agile environments, ISTA delivers robust diagnostics, service information, and workflow automation for modern vehicles. The system emphasizes clean architecture and maintainability, leveraging .NET, WPF, and Azure to ensure reliability and scalability.",
+      tags: [".NET", "WPF", "WCF", "SQLite", "Azure", "Agile (LeSS/Scrum)", "Jenkins", "Atlassian Suite"],
+      image: process.env.PUBLIC_URL + "/images/project/work/bmw-ista.jpeg",
+      link: null
     }
   ];
 
-  const categories = [
-    { id: 'all', label: 'All Projects', icon: 'fas fa-th' },
-    { id: 'personal', label: 'Personal', icon: 'fas fa-heart' },
-    { id: 'architecture', label: 'Architecture', icon: 'fas fa-sitemap' },
-    { id: 'fullstack', label: 'Full Stack', icon: 'fas fa-layer-group' },
-    { id: 'backend', label: 'Backend', icon: 'fas fa-server' },
-    { id: 'devops', label: 'DevOps', icon: 'fas fa-cogs' }
+  const ossProjects = [
+    {
+      id: 1,
+      title: "ASureBus",
+      description: "Open source service bus implementation for Azure, providing reliable message processing and event-driven architecture patterns.",
+      tags: [".NET", "Azure Service Bus", "Open Source", "Messaging"],
+      image: process.env.PUBLIC_URL + "/images/project/oss/asurebus.png",
+      link: "https://github.com/ggcol/ASureBus"
+    },
+    {
+      id: 2,
+      title: "Console Invaded",
+      description: "Console-based game framework bringing classic arcade gaming experience to the terminal with modern .NET capabilities.",
+      tags: [".NET", "Game Development", "Console", "Open Source"],
+      image: process.env.PUBLIC_URL + "/images/project/oss/console-invaded.png",
+      link: "https://github.com/ggcol/console-invaded"
+    }
   ];
 
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+  const personalProjects = [
+    {
+      id: 1,
+      title: "Casual Roads - Motorcycle Community",
+      description: "Building a social community for motorcycle enthusiasts through Instagram and YouTube. Sharing scenic routes, hidden gems, and the philosophy of embracing the journey over the destination.",
+      tags: ["Social Media", "Content Creation", "Community", "Video Production"],
+      image: process.env.PUBLIC_URL + "/images/projects/casual-roads.jpg",
+      link: "https://instagram.com/casual.roads"
+    },
+    // Add more personal projects here
+  ];
 
-  const featuredProjects = projects.filter(project => project.featured);
+  const ProjectCard = ({ project }) => (
+    <div className="project-card">
+      {project.image && (
+        <div className="project-card__image">
+          <img src={project.image} alt={project.title} />
+        </div>
+      )}
+      <div className="project-card__content">
+        <h3 className="project-card__title">{project.title}</h3>
+        <p className="project-card__description">{project.description}</p>
+        {project.tags && project.tags.length > 0 && (
+          <div className="project-card__tags">
+            {project.tags.map((tag, index) => (
+              <span key={index} className="project-card__tag">{tag}</span>
+            ))}
+          </div>
+        )}
+        {project.link && (
+          <a 
+            href={project.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="project-card__link"
+          >
+            View Project <i className="fas fa-external-link-alt"></i>
+          </a>
+        )}
+      </div>
+    </div>
+  );
+
+  const ProjectSection = ({ title, projects, icon }) => (
+    <div className="project-section">
+      <h3 className="project-section__title">
+        <i className={icon}></i>
+        {title}
+      </h3>
+      <div className="project-section__carousel">
+        <div className="project-section__track">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <section id="projects" className="section projects" ref={projectsRef}>
       <div className="container">
-        <h2 className="section-title">Projects & Creations</h2>
-        
-        {/* Featured Projects */}
-        <div className="projects__featured">
-          <div className="projects__featured-grid">
-            {featuredProjects.map((project, index) => (
-              <div key={project.id} className="projects__featured-item" style={{ animationDelay: `${index * 0.2}s` }}>
-                <div className="projects__featured-image">
-                  <img src={project.image} alt={project.title} />
-                  <div className="projects__featured-overlay">
-                    <div className="projects__featured-links">
-                      {project.github && (
-                        <a href={project.github} className="projects__link projects__link--github">
-                          <i className="fab fa-github"></i>
-                        </a>
-                      )}
-                      {project.instagram && (
-                        <a href={project.instagram} className="projects__link projects__link--instagram">
-                          <i className="fab fa-instagram"></i>
-                        </a>
-                      )}
-                      {project.youtube && (
-                        <a href={project.youtube} className="projects__link projects__link--youtube">
-                          <i className="fab fa-youtube"></i>
-                        </a>
-                      )}
-                      {project.demo && (
-                        <a href={project.demo} className="projects__link projects__link--demo">
-                          <i className="fas fa-external-link-alt"></i>
-                        </a>
-                      )}
-                      {project.portfolio && (
-                        <a href={project.portfolio} className="projects__link projects__link--portfolio">
-                          <i className="fas fa-images"></i>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <div className="projects__featured-content">
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <div className="projects__technologies">
-                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                      <span key={techIndex} className="projects__tech-tag">{tech}</span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="projects__tech-more">+{project.technologies.length - 3}</span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* All Projects */}
-        <div className="projects__all">
-          <h3 className="projects__subtitle">All Projects</h3>
-          
-          <div className="projects__filters">
-            {categories.map(category => (
-              <button 
-                key={category.id}
-                className={`projects__filter-btn ${filter === category.id ? 'projects__filter-btn--active' : ''}`}
-                onClick={() => setFilter(category.id)}
-              >
-                <i className={category.icon}></i>
-                {category.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="projects__grid">
-            {filteredProjects.map((project, index) => (
-              <div key={project.id} className="projects__item" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="projects__item-image">
-                  <img src={project.image} alt={project.title} />
-                  <div className="projects__item-overlay">
-                    <div className="projects__item-links">
-                      {project.github && (
-                        <a href={project.github} className="projects__link">
-                          <i className="fab fa-github"></i>
-                        </a>
-                      )}
-                      {project.instagram && (
-                        <a href={project.instagram} className="projects__link">
-                          <i className="fab fa-instagram"></i>
-                        </a>
-                      )}
-                      {project.youtube && (
-                        <a href={project.youtube} className="projects__link">
-                          <i className="fab fa-youtube"></i>
-                        </a>
-                      )}
-                      {project.demo && (
-                        <a href={project.demo} className="projects__link">
-                          <i className="fas fa-external-link-alt"></i>
-                        </a>
-                      )}
-                      {project.portfolio && (
-                        <a href={project.portfolio} className="projects__link">
-                          <i className="fas fa-images"></i>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <div className="projects__item-content">
-                  <h4>{project.title}</h4>
-                  <p>{project.description}</p>
-                  <div className="projects__technologies">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="projects__tech-tag projects__tech-tag--small">{tech}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <h2 className="section-title">Projects</h2>
+        <div className="worked-with-title">Worked with</div>
+        <WorkedWithCarousel />
+        <ProjectSection 
+          title="Work Projects" 
+          projects={workProjects}
+          icon="fas fa-briefcase"
+        />
+        <ProjectSection 
+          title="OSS Projects" 
+          projects={ossProjects}
+          icon="fas fa-code-branch"
+        />
+        <ProjectSection 
+          title="Personal Projects" 
+          projects={personalProjects}
+          icon="fas fa-heart"
+        />
       </div>
     </section>
   );
