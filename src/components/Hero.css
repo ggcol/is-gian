@@ -1,3 +1,17 @@
+.hero__interest-code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
+  background: none;
+  padding: 0;
+  display: block;
+  text-align: left;
+  margin: 0;
+  white-space: nowrap;
+  flex: 1;
+}
 .hero {
   min-height: 100vh;
   display: flex;
@@ -214,27 +228,26 @@
 }
 
 .hero__interests {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  max-width: 300px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
 .hero__interest-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.8rem 0.6rem;
+  gap: 0.75rem;
+  padding: 0.9rem 1.25rem;
   background: var(--background-primary);
   border-radius: 10px;
   box-shadow: 0 8px 20px var(--shadow-light);
   transition: transform 0.3s ease;
-  text-align: center;
-  width: 85px;
-  min-height: 85px;
+  text-align: left;
+  width: 100%;
+  height: 56px;
 }
 
 .hero__interest-item:hover {
@@ -242,15 +255,9 @@
 }
 
 .hero__interest-item i {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--primary-color);
-}
-
-.hero__interest-item span {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  line-height: 1.1;
+  flex-shrink: 0;
 }
 
 .hero__scroll-indicator {

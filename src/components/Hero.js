@@ -117,27 +117,27 @@ const Hero = () => {
             <div className="hero__interests">
               <div className="hero__interest-item">
                 <i className="fas fa-code"></i>
-                <span>Technology</span>
+                <span className="hero__interest-code">Technology</span>
               </div>
               <div className="hero__interest-item">
                 <i className="fas fa-motorcycle"></i>
-                <span>Motorcycling</span>
+                <span className="hero__interest-code">Motorcycling</span>
               </div>
               <div className="hero__interest-item">
                 <i className="fas fa-beer"></i>
-                <span>Craft Beer</span>
+                <span className="hero__interest-code">Craft Beer</span>
               </div>
               <div className="hero__interest-item">
                 <i className="fas fa-camera"></i>
-                <span>Photography</span>
+                <span className="hero__interest-code">Photography</span>
               </div>
               <div className="hero__interest-item">
                 <i className="fas fa-music"></i>
-                <span>Music</span>
+                <span className="hero__interest-code">Music</span>
               </div>
               <div className="hero__interest-item">
                 <i className="fas fa-book"></i>
-                <span>Books</span>
+                <span className="hero__interest-code">Books</span>
               </div>
             </div>
           </div>
