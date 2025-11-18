@@ -102,6 +102,139 @@ const ProfessionalJourney = () => {
               </div>
             </div>
           </div>
+
+          <div className="journey__certifications">
+            <h3>Certifications</h3>
+            <div className="journey__cert-grid">
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-gb/red-9033/1F21C5CA5E1D4076?sharingId=B92468F13C38F258"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="journey__cert-item journey__cert-item--expert"
+              >
+                <div className="journey__cert-badge">
+                  <img src={`${process.env.PUBLIC_URL}/images/cert/cert-expert.png`} alt="Expert Badge" />
+                </div>
+                <div className="journey__cert-content">
+                  <h4>Azure Solutions Architect Expert</h4>
+                  <span className="journey__cert-code">AZ-305</span>
+                </div>
+                <i className="fas fa-external-link-alt journey__cert-link-icon"></i>
+              </a>
+
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-gb/red-9033/A2C952EFD9680D28?sharingId=B92468F13C38F258"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="journey__cert-item journey__cert-item--expert"
+              >
+                <div className="journey__cert-badge">
+                  <img src={`${process.env.PUBLIC_URL}/images/cert/cert-expert.png`} alt="Expert Badge" />
+                </div>
+                <div className="journey__cert-content">
+                  <h4>DevOps Engineer Expert</h4>
+                  <span className="journey__cert-code">AZ-400</span>
+                </div>
+                <i className="fas fa-external-link-alt journey__cert-link-icon"></i>
+              </a>
+
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-gb/red-9033/4CB6365B7A536E51?sharingId=B92468F13C38F258"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="journey__cert-item"
+              >
+                <div className="journey__cert-badge">
+                  <img src={`${process.env.PUBLIC_URL}/images/cert/cert-associate.png`} alt="Associate Badge" />
+                </div>
+                <div className="journey__cert-content">
+                  <h4>Azure Administrator Associate</h4>
+                  <span className="journey__cert-code">AZ-104</span>
+                </div>
+                <i className="fas fa-external-link-alt journey__cert-link-icon"></i>
+              </a>
+
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-gb/red-9033/E0D1F30E960F0A95?sharingId=B92468F13C38F258"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="journey__cert-item"
+              >
+                <div className="journey__cert-badge">
+                  <img src={`${process.env.PUBLIC_URL}/images/cert/cert-associate.png`} alt="Associate Badge" />
+                </div>
+                <div className="journey__cert-content">
+                  <h4>Azure Developer Associate</h4>
+                  <span className="journey__cert-code">AZ-204</span>
+                </div>
+                <i className="fas fa-external-link-alt journey__cert-link-icon"></i>
+              </a>
+
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-gb/red-9033/79FAD44CD278C456?sharingId=B92468F13C38F258"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="journey__cert-item"
+              >
+                <div className="journey__cert-badge">
+                  <img src={`${process.env.PUBLIC_URL}/images/cert/cert-fundamentals.png`} alt="Fundamentals Badge" />
+                </div>
+                <div className="journey__cert-content">
+                  <h4>Azure Data Fundamentals</h4>
+                  <span className="journey__cert-code">DP-900</span>
+                </div>
+                <i className="fas fa-external-link-alt journey__cert-link-icon"></i>
+              </a>
+
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-gb/red-9033/CB93394D28387874?sharingId=B92468F13C38F258"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="journey__cert-item"
+              >
+                <div className="journey__cert-badge">
+                  <img src={`${process.env.PUBLIC_URL}/images/cert/cert-fundamentals.png`} alt="Fundamentals Badge" />
+                </div>
+                <div className="journey__cert-content">
+                  <h4>Azure Fundamentals</h4>
+                  <span className="journey__cert-code">AZ-900</span>
+                </div>
+                <i className="fas fa-external-link-alt journey__cert-link-icon"></i>
+              </a>
+
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-gb/red-9033/DAD1638A526B043C?sharingId=B92468F13C38F258"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="journey__cert-item"
+              >
+                <div className="journey__cert-badge">
+                  <img src={`${process.env.PUBLIC_URL}/images/cert/gh-admin.png`} alt="GitHub Admin Badge" />
+                </div>
+                <div className="journey__cert-content">
+                  <h4>GitHub Administration</h4>
+                  <span className="journey__cert-code">GH-100</span>
+                </div>
+                <i className="fas fa-external-link-alt journey__cert-link-icon"></i>
+              </a>
+
+              <a 
+                href="https://www.efset.org/cert/p8YBiV"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="journey__cert-item"
+              >
+                <div className="journey__cert-badge">
+                  <img src={`${process.env.PUBLIC_URL}/images/cert/ef-set-logo.png`} alt="EF SET Badge" />
+                </div>
+                <div className="journey__cert-content">
+                  <h4>EF SET English Certificate</h4>
+                  <span className="journey__cert-code">C2 Proficient</span>
+                </div>
+                <i className="fas fa-external-link-alt journey__cert-link-icon"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
