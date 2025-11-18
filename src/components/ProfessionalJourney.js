@@ -78,27 +78,35 @@ const ProfessionalJourney = () => {
             <div className="journey__tech-grid">
               <div className="journey__tech-item">
                 <i className="fab fa-microsoft"></i>
-                <span>.NET Core</span>
+                <span>.NET</span>
+              </div>
+              <div className="journey__tech-item">
+                <i className="fab fa-apple"></i>
+                <span>Apple</span>
               </div>
               <div className="journey__tech-item">
                 <i className="fas fa-cloud"></i>
                 <span>Azure</span>
               </div>
               <div className="journey__tech-item">
-                <i className="fab fa-react"></i>
-                <span>React</span>
+                <i className="fab fa-aws"></i>
+                <span>AWS</span>
               </div>
               <div className="journey__tech-item">
-                <i className="fas fa-database"></i>
-                <span>SQL Server</span>
+                <i className="fab fa-git-alt"></i>
+                <span>Git</span>
               </div>
               <div className="journey__tech-item">
                 <i className="fab fa-docker"></i>
                 <span>Docker</span>
               </div>
               <div className="journey__tech-item">
-                <i className="fas fa-code-branch"></i>
-                <span>DevOps</span>
+                <i className="fas fa-dharmachakra"></i>
+                <span>Kubernetes</span>
+              </div>
+              <div className="journey__tech-item">
+                <i className="fas fa-database"></i>
+                <span>SQL Server</span>
               </div>
             </div>
           </div>

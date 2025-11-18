@@ -13,8 +13,9 @@
 }
 
 .journey__content {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .journey__intro {
@@ -29,7 +30,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .journey__highlight {
@@ -76,21 +80,22 @@
 }
 
 .journey__tech-stack {
-  text-align: center;
+  margin-bottom: 5rem;
 }
 
 .journey__tech-stack h3 {
   color: var(--text-primary);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-size: 1.5rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .journey__tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1.5rem;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -122,22 +127,22 @@
 }
 
 .journey__certifications {
-  margin-top: 4rem;
-  text-align: center;
+  margin-top: 0;
 }
 
 .journey__certifications h3 {
   color: var(--text-primary);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-size: 1.5rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .journey__cert-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
