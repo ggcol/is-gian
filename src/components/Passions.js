@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './Passions.css';
+import { profile } from '../content/profile';
 
 const Passions = () => {
   const passionsRef = useRef();
@@ -27,6 +28,15 @@ const Passions = () => {
     };
   }, []);
 
+  const iconMap = {
+    motorcycling: 'fas fa-motorcycle',
+    'craft-beverage': 'fas fa-beer',
+    music: 'fas fa-music',
+    photography: 'fas fa-camera',
+    bbq: 'fas fa-fire',
+    reading: 'fas fa-book'
+  };
+
   return (
     <section id="passions" className="section passions" ref={passionsRef}>
       <div className="container">
@@ -34,122 +44,52 @@ const Passions = () => {
         <p className="passions__subtitle">
           Life is about collecting experiences, not just achievements. Here's what fuels my soul.
         </p>
-        
         <div className="passions__grid">
-          
-          {/* Motorcycling */}
-          <div className="passion__card passion__card--featured">
-            <div className="passion__icon">
-              <i className="fas fa-motorcycle"></i>
-            </div>
-            <h3>Motorcycling & Casual Roads</h3>
-            <p>
-              The open road is my therapy. Through <strong>Casual Roads</strong>, I'm building a community 
-              of riders who share my passion for discovering hidden gems, scenic routes, and the stories 
-              that unfold when we embrace the journey over the destination.
-            </p>
-            <div className="passion__links">
-              <a href="#" className="passion__link">
-                <i className="fab fa-instagram"></i> @casual.roads
-              </a>
-              <a href="#" className="passion__link">
-                <i className="fab fa-youtube"></i> Casual Roads
-              </a>
-            </div>
-          </div>
-
-          {/* Craft Beer & Whiskey */}
-          <div className="passion__card">
-            <div className="passion__icon">
-              <i className="fas fa-beer"></i>
-            </div>
-            <h3>Craft Beer & Whiskey Adventures</h3>
-            <p>
-              From owning and managing a pub to road-tripping across Europe discovering local breweries 
-              and distilleries, I've learned that every pour tells a story. It's about the craft, 
-              the culture, and the conversations that flow.
-            </p>
-            <div className="passion__stats">
-              <span>🍺 50+ Breweries Visited</span>
-              <span>🥃 1 Pub Managed</span>
-            </div>
-          </div>
-
-          {/* Music */}
-          <div className="passion__card">
-            <div className="passion__icon">
-              <i className="fas fa-music"></i>
-            </div>
-            <h3>Music & Instruments</h3>
-            <p>
-              Whether I'm listening to discover new artists or picking up my guitar, music is my 
-              constant companion. It's the soundtrack to my rides, the background to my coding sessions, 
-              and the rhythm that keeps life interesting.
-            </p>
-            <div className="passion__instruments">
-              <span>🎸 Guitar</span>
-              <span>🎹 Piano</span>
-              <span>🎵 Multi-instrumentalist</span>
-            </div>
-          </div>
-
-          {/* Photography */}
-          <div className="passion__card">
-            <div className="passion__icon">
-              <i className="fas fa-camera"></i>
-            </div>
-            <h3>Travel Photography</h3>
-            <p>
-              Every journey deserves to be remembered. Through my lens, I capture the essence of places, 
-              people, and moments that might otherwise fade. From mountain curves to brewery corners, 
-              each shot tells part of my story.
-            </p>
-            <div className="passion__gear">
-              <span>📸 Always Ready</span>
-              <span>🌍 Stories from the Road</span>
-            </div>
-          </div>
-
-          {/* BBQ */}
-          <div className="passion__card">
-            <div className="passion__icon">
-              <i className="fas fa-fire"></i>
-            </div>
-            <h3>BBQ & Culinary Arts</h3>
-            <p>
-              There's something primal and satisfying about cooking over fire. BBQ taught me patience, 
-              timing, and that the best things in life are worth waiting for. Plus, great food brings 
-              great people together.
-            </p>
-            <div className="passion__flavors">
-              <span>🔥 Low & Slow</span>
-              <span>🥩 Perfect Timing</span>
-            </div>
-          </div>
-
-          {/* Reading */}
-          <div className="passion__card">
-            <div className="passion__icon">
-              <i className="fas fa-book"></i>
-            </div>
-            <h3>Reading & Learning</h3>
-            <p>
-              Books are portals to different worlds and perspectives. Whether it's technical knowledge, 
-              philosophy, travel narratives, or just a good story, reading keeps my mind curious and 
-              my worldview expanding.
-            </p>
-            <div className="passion__books">
-              <span>📚 Always Learning</span>
-              <span>🧠 Curious Mind</span>
-            </div>
-          </div>
-
+          {profile.passions.map((p, idx) => {
+            const metrics = p.metrics || {};
+            const links = p.links || [];
+            return (
+              <div
+                key={p.id}
+                className={`passion__card ${idx === 0 ? 'passion__card--featured' : ''}`}
+              >
+                <div className="passion__icon">
+                  <i className={iconMap[p.id] || 'fas fa-star'}></i>
+                </div>
+                <h3>{p.title}</h3>
+                {p.tagline && <p className="passion__tagline"><em>{p.tagline}</em></p>}
+                <p>{p.summary}</p>
+                {Object.keys(metrics).length > 0 && (
+                  <div className="passion__metrics">
+                    {Object.entries(metrics).map(([k, v]) => (
+                      <span key={k}>{Array.isArray(v) ? v.join(', ') : v}</span>
+                    ))}
+                  </div>
+                )}
+                {p.tags && (
+                  <div className="passion__tags">
+                    {p.tags.map(t => (
+                      <span key={t} className="passion__tag">{t}</span>
+                    ))}
+                  </div>
+                )}
+                {links.length > 0 && (
+                  <div className="passion__links">
+                    {links.map(l => (
+                      <a key={l.label} href={l.url} className="passion__link">
+                        <i className={l.icon}></i> {l.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
-
         <div className="passions__cta">
           <h3>Let's Connect Over Shared Passions</h3>
           <p>
-            Whether you want to talk tech, plan a motorcycle route, recommend a great brewery, 
+            Whether you want to talk tech, plan a motorcycle route, recommend a great brewery,
             or just share stories - I'm always up for a good conversation.
           </p>
         </div>

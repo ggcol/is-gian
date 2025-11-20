@@ -1,5 +1,58 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './About.css';
+import { profile } from '../content/profile';
+
+const CountUpMetric = ({ value, label, suffix = '+' }) => {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const metricRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            const duration = 2000;
+            const steps = 60;
+            const increment = value / steps;
+            let current = 0;
+
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= value) {
+                setCount(value);
+                clearInterval(timer);
+              } else {
+                setCount(Math.floor(current));
+              }
+            }, duration / steps);
+
+            return () => clearInterval(timer);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (metricRef.current) {
+      observer.observe(metricRef.current);
+    }
+
+    return () => {
+      if (metricRef.current) {
+        observer.unobserve(metricRef.current);
+      }
+    };
+  }, [value, hasAnimated]);
+
+  return (
+    <div className="about__metric" ref={metricRef}>
+      <div className="about__metric-value">{count}{suffix}</div>
+      <div className="about__metric-label">{label}</div>
+    </div>
+  );
+};
 
 const About = () => {
   const aboutRef = useRef();
@@ -31,53 +84,51 @@ const About = () => {
     <section id="about" className="section about" ref={aboutRef}>
       <div className="container">
         <h2 className="section-title">Who I Am</h2>
-        
         <div className="about__content">
-          <div className="about__text">
-            <div className="about__intro">
-              <p>
-                I'm someone who believes life is meant to be lived fully. While I spend my days 
-                <strong> leading tech teams</strong> and architecting solutions, my heart beats for the 
-                <strong> open road</strong>, the perfect craft beer, and the stories we create along the way.
-              </p>
-              <p>
-                From managing a pub where I learned the art of hospitality, to building 
-                <strong> 'Casual Roads'</strong> - my passion project connecting motorcycle enthusiasts - 
-                I've always been drawn to creating communities and experiences that bring people together.
-              </p>
-            </div>
-
+          <div className="about__left">
             <div className="about__philosophy">
               <div className="about__philosophy-content">
-                <h3>My Approach to Life</h3>
-                <blockquote>
-                  "Whether it's writing clean code, finding the perfect brewery on a motorcycle trip, 
-                  or capturing that golden hour shot, I believe in doing things with passion and 
-                  authenticity. Every experience teaches us something - and every story is worth sharing."
-                </blockquote>
+                <blockquote>{profile.narrative.philosophy}</blockquote>
               </div>
             </div>
+            <div className="about__image">
+              <img src={`${process.env.PUBLIC_URL}/images/about/gian-glenfinnan.jpg`} alt="Gian at Glenfinnan" />
+            </div>
           </div>
-
-          <div className="about__stats">
-            <div className="about__stat">
-              <div className="about__stat-number">15+</div>
-              <div className="about__stat-label">Countries Explored</div>
+          <div className="about__right">
+            <div className="about__intro">
+              {profile.narrative.intro.map((paragraph, index) => (
+                <p key={`intro-${index}`}>{paragraph}</p>
+              ))}
+              {profile.narrative.bridge.map((paragraph, index) => (
+                <p key={`bridge-${index}`}>{paragraph}</p>
+              ))}
             </div>
-            <div className="about__stat">
-              <div className="about__stat-number">6+</div>
-              <div className="about__stat-label">Years Coding</div>
+            <div className="about__values">
+              <h3>Core Values</h3>
+              <ul>
+                {profile.values.map(v => (
+                  <li key={v.key}>{v.label}</li>
+                ))}
+              </ul>
             </div>
-            <div className="about__stat">
-              <div className="about__stat-number">200+</div>
-              <div className="about__stat-label">Breweries Visited</div>
-            </div>
-            <div className="about__stat">
-              <div className="about__stat-number">1</div>
-              <div className="about__stat-label">Pub Owned</div>
+            <div className="about__future">
+              <h3>Future Focus</h3>
+              {profile.future.map(f => (
+                <div key={f.horizon} className="future__horizon">
+                  <strong>{f.horizon}</strong>: {f.focus.join(', ')}
+                </div>
+              ))}
             </div>
           </div>
         </div>
+      </div>
+      <div className="about__metrics">
+        <CountUpMetric value={profile.metrics.yearsBuildingSystems} label="Years Building Systems" />
+        <CountUpMetric value={profile.metrics.countriesExplored} label="Countries Explored" />
+        <CountUpMetric value={profile.metrics.routesCurated} label="Routes Curated" />
+        <CountUpMetric value={profile.metrics.breweriesVisited} label="Breweries Visited" />
+        <CountUpMetric value={profile.metrics.pubManaged} label="Pub Owned" suffix="" />
       </div>
     </section>
   );

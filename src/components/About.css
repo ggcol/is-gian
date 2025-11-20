@@ -5,6 +5,10 @@
   transition: all 0.8s ease-out;
 }
 
+.about .container {
+  max-width: 1600px;
+}
+
 .about--visible {
   opacity: 1;
   transform: translateY(0);
@@ -12,21 +16,46 @@
 
 .about__content {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  margin-bottom: 4rem;
-  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.about__left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about__right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.about__image {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--shadow-light);
+}
+
+.about__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .about__intro {
-  margin-bottom: 2.5rem;
+  margin-bottom: 0;
 }
 
 .about__intro p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1.10rem;
+  line-height: 1.9;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  text-align: justify;
 }
 
 .about__intro strong {
@@ -81,41 +110,47 @@
   margin: 0;
 }
 
-.about__stats {
+.about__metrics {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100());
+  padding: 2rem;
+  border-radius: 0;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  position: sticky;
-  top: 100px;
-}
-
-.about__stat {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
   text-align: center;
-  padding: 2rem 1rem;
-  background: var(--background-primary);
-  border-radius: 12px;
-  box-shadow: 0 5px 15px var(--shadow-light);
-  transition: transform 0.3s ease;
+  margin-top: 2rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }
 
-.about__stat:hover {
+.about__metric {
+  color: white;
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(3, 56, 89, 0.85);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.about__metric:hover {
   transform: translateY(-5px);
+  background: rgba(3, 56, 89, 0.95);
 }
 
-.about__stat-number {
+.about__metric-value {
   font-size: 2.5rem;
   font-weight: 700;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
 }
 
-.about__stat-label {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  font-weight: 500;
+.about__metric-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.95;
+  color: white;
 }
 
 .about__philosophy {
@@ -172,15 +207,75 @@
   opacity: 0.3;
 }
 
+.about__values {
+  margin-top: 2.5rem;
+}
+
+.about__values h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.about__values ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.about__values li {
+  background: var(--background-primary);
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  border-left: 3px solid var(--primary-color);
+  transition: transform 0.2s ease;
+}
+
+.about__values li:hover {
+  transform: translateX(5px);
+}
+
+.about__future {
+  margin-top: 2.5rem;
+  background: var(--background-primary);
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.about__future h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.4rem;
+}
+
+.future__horizon {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.future__horizon:last-child {
+  border-bottom: none;
+}
+
+.future__horizon strong {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
 @media (max-width: 1024px) {
   .about__content {
     grid-template-columns: 1fr;
     gap: 3rem;
-  }
-
-  .about__stats {
-    grid-template-columns: repeat(2, 1fr);
-    position: static;
   }
 }
 
@@ -203,17 +298,22 @@
     align-self: center;
   }
 
-  .about__stats {
-    grid-template-columns: 1fr;
+  .about__metrics {
+    padding: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 
-  .about__stat {
-    padding: 1.5rem 1rem;
+  .about__metric {
+    padding: 1rem 0.5rem;
   }
 
-  .about__stat-number {
-    font-size: 2rem;
+  .about__metric-value {
+    font-size: 1.8rem;
+  }
+
+  .about__metric-label {
+    font-size: 0.75rem;
   }
 
   .about__philosophy {
@@ -230,5 +330,13 @@
 
   .about__philosophy blockquote::before {
     display: none;
+  }
+
+  .about__values ul {
+    grid-template-columns: 1fr;
+  }
+
+  .about__future {
+    padding: 1.5rem;
   }
 }

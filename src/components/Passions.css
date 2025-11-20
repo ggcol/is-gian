@@ -80,6 +80,46 @@
   margin-bottom: 1.5rem;
 }
 
+.passion__tagline {
+  font-size: 0.95rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  margin-top: -0.5rem;
+}
+
+.passion__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.passion__tag {
+  background: var(--background-tertiary);
+  color: var(--text-secondary);
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  text-transform: lowercase;
+  border: 1px solid var(--border-light);
+}
+
+.passion__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.passion__metrics span {
+  background: var(--background-tertiary);
+  color: var(--primary-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 .passion__links {
   display: flex;
   gap: 1rem;

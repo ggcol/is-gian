@@ -3,10 +3,10 @@
 
 const featureFlags = {
   hero: true, //OK
-  about: false,
+  about: true, //OK
   passions: false,
   professionalSnapshot: true, //OK
-  projects: true,
+  projects: true, //OK
   skills: false,
   contact: true, //OK
   downloadCV: true, //OK

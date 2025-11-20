@@ -76,7 +76,7 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: "ISTA",
+      title: "BMW - ISTA",
       description: "BMW ISTA is a comprehensive vehicle diagnostic platform used by BMW AG to support complex automotive workflows. Built for international teams working in agile environments, ISTA delivers robust diagnostics, service information, and workflow automation for modern vehicles. The system emphasizes clean architecture and maintainability, leveraging .NET, WPF, and Azure to ensure reliability and scalability.",
       tags: [".NET", "WPF", "WCF", "SQLite", "Azure", "Agile (LeSS/Scrum)", "Jenkins", "Atlassian Suite"],
       image: process.env.PUBLIC_URL + "/images/project/work/bmw-ista.jpeg",
