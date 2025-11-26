@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
 import featureFlags from '../config/featureFlags';
 import './Header.css';
@@ -7,6 +8,8 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +21,27 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+    setIsMobileMenuOpen(false);
+  };
+
+  const navigateToBlog = () => {
+    navigate('/blog');
     setIsMobileMenuOpen(false);
   };
 
@@ -36,6 +56,7 @@ const Header = () => {
               {featureFlags.passions && <li><button onClick={() => scrollToSection('passions')} className="header__nav-link">Passions</button></li>}
               {featureFlags.professionalSnapshot && <li><button onClick={() => scrollToSection('professional')} className="header__nav-link">Professional</button></li>}
               {featureFlags.projects && <li><button onClick={() => scrollToSection('projects')} className="header__nav-link">Projects</button></li>}
+              {featureFlags.blog && <li><button onClick={navigateToBlog} className="header__nav-link">Blog</button></li>}
               {featureFlags.contact && <li><button onClick={() => scrollToSection('contact')} className="header__nav-link">Contact</button></li>}
             </ul>
           </nav>

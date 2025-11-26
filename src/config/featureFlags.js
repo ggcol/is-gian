@@ -10,6 +10,7 @@ const featureFlags = {
   skills: false,
   contact: true, //OK
   downloadCV: true, //OK
+  blog: true, // Blog section
 };
 
 export default featureFlags;
