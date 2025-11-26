@@ -13,6 +13,7 @@ const BlogPost = () => {
   const [metadata, setMetadata] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const loadArticle = async () => {
@@ -36,6 +37,8 @@ const BlogPost = () => {
         setMetadata(attributes);
         setContent(body);
         setLoading(false);
+        // Trigger animation after data loads
+        setTimeout(() => setIsVisible(true), 100);
       } catch (err) {
         setError(err.message);
         setLoading(false);
@@ -77,7 +80,7 @@ const BlogPost = () => {
   };
 
   return (
-    <div className="blog-post-container">
+    <div className={`blog-post-container ${isVisible ? 'blog--visible' : ''}`}>
       <div className="blog-post">
         <button onClick={() => navigate('/blog')} className="btn-back">
           ← Back to Blog

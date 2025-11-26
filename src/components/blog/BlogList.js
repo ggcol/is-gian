@@ -10,6 +10,7 @@ const BlogList = () => {
   const [articlesData, setArticlesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedTag, setSelectedTag] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const loadArticles = async () => {
@@ -38,6 +39,8 @@ const BlogList = () => {
         
         setArticlesData(loadedArticles.filter(a => a !== null));
         setLoading(false);
+        // Trigger animation after data loads
+        setTimeout(() => setIsVisible(true), 100);
       } catch (err) {
         console.error('Failed to load articles:', err);
         setLoading(false);
@@ -75,7 +78,7 @@ const BlogList = () => {
   }
 
   return (
-    <div className="blog-container">
+    <div className={`blog-container ${isVisible ? 'blog--visible' : ''}`}>
       <BlogSidebar 
         articles={articlesData}
         selectedTag={selectedTag}
@@ -84,7 +87,11 @@ const BlogList = () => {
       
       <main className="blog-main">
         <div className="blog-header">
-          <h1 className="blog-title">Blog</h1>
+          <h1 className="blog-title">
+            <span className="blog-title__path">~/blog/posts</span>
+            <span className="blog-title__prompt"> $ </span>
+            <span className="blog-title__command">git stash list</span>
+          </h1>
           {selectedTag && (
             <div className="blog-filter-info">
               Showing articles tagged with <strong>{selectedTag}</strong>
@@ -110,15 +117,15 @@ const BlogList = () => {
                 className="blog-card"
                 onClick={() => navigate(`/blog/${article.slug}`)}
               >
-                {article.metadata.coverImage && (
-                  <div className="blog-card__image">
+                <div className="blog-card__image">
+                  {article.metadata.coverImage && (
                     <img 
                       src={`${process.env.PUBLIC_URL}/content/blog/${article.slug}/${article.metadata.coverImage}`}
                       alt={article.metadata.title}
                       onError={(e) => { e.target.style.display = 'none'; }}
                     />
-                  </div>
-                )}
+                  )}
+                </div>
                 
                 <div className="blog-card__content">
                   <h2 className="blog-card__title">{article.metadata.title}</h2>

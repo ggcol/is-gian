@@ -2,11 +2,9 @@
 title: "How to Authenticate GitHub Apps: A Practical Guide"
 date: "2025-04-01"
 tags: ["github", "auth", "apps", "github apps"]
-excerpt: "A practical guide to GitHub client flow authentication"
+excerpt: "This is a practical guide to GitHub client flow authentication. GitHub Apps can do much more than this, but we're going to quickly cover only one case: authenticating a backend service, integration, or any application that acts and authenticates as an application against GitHub..."
 coverImage: "github-apps.png"
 ---
-
-# How to Authenticate GitHub Apps: A Practical Guide
 
 This is a practical guide to GitHub client flow authentication. GitHub Apps can do much more than this, but we're going to quickly cover only one case: authenticating a backend service, integration, or any application that acts and authenticates as an application against GitHub.
 
