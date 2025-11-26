@@ -107,7 +107,18 @@ const Projects = () => {
       description: "Open source .NET library simplifying Azure Service Bus with APIs for publish/subscribe, message handlers, and sagas. Actively used in production. Built in C#, using ASB SDKs, distributed via NuGet.",
       tags: [".NET", "Azure Service Bus", "Messaging", "Open Source"],
       image: process.env.PUBLIC_URL + "/images/project/oss/asurebus.png",
-      link: "https://github.com/ggcol/ASureBus"
+      links: [
+        {
+          text: "View on GitHub",
+          url: "https://github.com/ggcol/ASureBus",
+          icon: "fab fa-github"
+        },
+        {
+          text: "View on NuGet",
+          url: "https://www.nuget.org/packages/ASureBus/",
+          icon: "fas fa-box"
+        }
+      ]
     },
     {
       id: 2,
@@ -115,7 +126,13 @@ const Projects = () => {
       description: "Console-based game framework bringing classic arcade gaming experience to the terminal with modern .NET capabilities.",
       tags: [".NET", "Game Development", "Console", "Open Source"],
       image: process.env.PUBLIC_URL + "/images/project/oss/console-invaded.png",
-      link: "https://github.com/ggcol/console-invaded"
+      links: [
+        {
+          text: "View on GitHub",
+          url: "https://github.com/ggcol/console-invaded",
+          icon: "fab fa-github"
+        }
+      ] 
     },
     {
       id: 3,
@@ -123,7 +140,17 @@ const Projects = () => {
       description: "A simple RESTful API that converts numeric values into their full word representation. Built with .NET Core 8 and hosted on Azure Function.",
       tags: [".NET", "Azure Functions", "REST API", "Open Source"],
       image: null,
-      link: "https://github.com/ggcol/SpellOutNumberAPI"
+      links: [
+        {
+          text: "View on GitHub",
+          url: "https://github.com/ggcol/SpellOutNumberAPI",
+          icon: "fab fa-github"
+        },
+        {
+          text: "Try Live",
+          url: "https://spelloutnumber.azurewebsites.net/api/spellout/42"
+        }
+      ]
     }
 
   ];
@@ -131,11 +158,17 @@ const Projects = () => {
   const personalProjects = [
     {
       id: 1,
-      title: "Casual Roads - Motorcycle Community",
+      title: "Casual Roads",
       description: "Building a social community for motorcycle enthusiasts through Instagram and YouTube. Sharing scenic routes, hidden gems, and the philosophy of embracing the journey over the destination.",
       tags: ["Social Media", "Content Creation", "Community", "Video Production", "Personal"],
       image: process.env.PUBLIC_URL + "/images/project/personal-ss/casual-roads.jpg",
-      link: "https://www.instagram.com/casualroads"
+      links: [
+        {
+          text: "@casualroads",
+          url: "https://www.instagram.com/casualroads",
+          icon: "fab fa-instagram"
+        }
+      ]
     },
     {
       id: 2,
@@ -151,15 +184,15 @@ const Projects = () => {
     <div className="project-card">
       <div className="project-card__image">
         {project.image && (
-          <img 
-            src={project.image} 
+          <img
+            src={project.image}
             alt={project.title}
             onError={(e) => { e.target.style.display = 'none'; }}
           />
         )}
+        <h3 className="project-card__title">{project.title}</h3>
       </div>
       <div className="project-card__content">
-        <h3 className="project-card__title">{project.title}</h3>
         <p className="project-card__description">{project.description}</p>
         {project.tags && project.tags.length > 0 && (
           <div className="project-card__tags">
@@ -168,15 +201,20 @@ const Projects = () => {
             ))}
           </div>
         )}
-        {project.link && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-card__link"
-          >
-            View Project <i className="fas fa-external-link-alt"></i>
-          </a>
+        {project.links && project.links.length > 0 && (
+          <div className="project-card__links">
+            {project.links.map((link, index) => (
+              <a
+                key={index}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-card__link"
+              >
+                <i className={link.icon || "fas fa-external-link-alt"}></i> {link.text}
+              </a>
+            ))}
+          </div>
         )}
       </div>
     </div>
