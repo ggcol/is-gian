@@ -15,16 +15,26 @@ const BlogList = () => {
   useEffect(() => {
     const loadArticles = async () => {
       try {
+        console.log('Loading articles...', articles);
+        console.log('PUBLIC_URL:', process.env.PUBLIC_URL);
+        
         const loadedArticles = await Promise.all(
           articles.map(async (article) => {
             try {
-              const response = await fetch(
-                `${process.env.PUBLIC_URL}/content/blog/${article.slug}/index.md`
-              );
-              if (!response.ok) throw new Error('Failed to load article');
+              const url = `${process.env.PUBLIC_URL}/content/blog/${article.slug}/index.md`;
+              console.log(`Fetching article from: ${url}`);
+              
+              const response = await fetch(url);
+              console.log(`Response status for ${article.slug}:`, response.status);
+              
+              if (!response.ok) {
+                throw new Error(`Failed to load article: ${response.status} ${response.statusText}`);
+              }
               
               const markdown = await response.text();
               const { attributes } = frontMatter(markdown);
+              
+              console.log(`Loaded article ${article.slug}:`, attributes);
               
               return {
                 ...article,
@@ -37,7 +47,10 @@ const BlogList = () => {
           })
         );
         
-        setArticlesData(loadedArticles.filter(a => a !== null));
+        const validArticles = loadedArticles.filter(a => a !== null);
+        console.log('Valid articles loaded:', validArticles);
+        
+        setArticlesData(validArticles);
         setLoading(false);
         // Trigger animation after data loads
         setTimeout(() => setIsVisible(true), 100);
