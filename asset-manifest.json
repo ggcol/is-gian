@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/is-gian/static/css/main.49c0c82f.css",
-    "main.js": "/is-gian/static/js/main.86df3244.js",
+    "main.css": "/is-gian/static/css/main.fc81d05a.css",
+    "main.js": "/is-gian/static/js/main.d779c274.js",
     "index.html": "/is-gian/index.html",
-    "main.49c0c82f.css.map": "/is-gian/static/css/main.49c0c82f.css.map",
-    "main.86df3244.js.map": "/is-gian/static/js/main.86df3244.js.map"
+    "main.fc81d05a.css.map": "/is-gian/static/css/main.fc81d05a.css.map",
+    "main.d779c274.js.map": "/is-gian/static/js/main.d779c274.js.map"
   },
   "entrypoints": [
-    "static/css/main.49c0c82f.css",
-    "static/js/main.86df3244.js"
+    "static/css/main.fc81d05a.css",
+    "static/js/main.d779c274.js"
   ]
 }
