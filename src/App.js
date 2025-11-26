@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import './App.css';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
@@ -31,9 +32,10 @@ const HomePage = () => (
 
 function App() {
   return (
-    <ThemeProvider>
-      <HashRouter>
-        <div className="App">
+    <HelmetProvider>
+      <ThemeProvider>
+        <HashRouter>
+          <div className="App">
           <Header />
           <main>
             <Routes>
@@ -48,9 +50,10 @@ function App() {
           </main>
           <Footer />
           <UnderConstruction />
-        </div>
-      </HashRouter>
-    </ThemeProvider>
+          </div>
+        </HashRouter>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

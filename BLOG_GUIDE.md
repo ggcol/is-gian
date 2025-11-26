@@ -66,13 +66,39 @@ const articles = [
 ];
 ```
 
-### 5. Test and Deploy
+### 5. Generate Share Pages
+
+Run the automated script to generate social media share pages:
+
+```bash
+npm run generate-share-pages
+```
+
+This creates static HTML files in `public/blog/` with proper Open Graph meta tags for each article. These pages:
+- Enable proper title/image preview on LinkedIn, Twitter, Facebook
+- Automatically redirect users to the actual article
+- Are regenerated automatically before each deployment
+
+**Note:** The script runs automatically when you deploy (`npm run deploy`), but you can run it manually to test social sharing locally.
+
+### 6. Test and Deploy
 
 Articles in `public/content/blog/` are ready to use immediately:
 - **Development**: `npm start` - changes are live
-- **Production**: `npm run build` - articles are included in the build
+- **Production**: `npm run deploy` - builds, generates share pages, and deploys
 
-That's it! No copying needed.
+## Social Sharing
+
+When users click the share buttons in your articles, they'll share the URL:
+```
+https://ggcol.github.io/is-gian/blog/your-article-slug.html
+```
+
+This URL:
+- Shows proper preview cards on social media (title, description, cover image)
+- Redirects to the actual article at `/#/blog/your-article-slug`
+
+That's it! No manual work needed for social sharing.
 
 ## Markdown Features Supported
 

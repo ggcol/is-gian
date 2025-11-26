@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import frontMatter from 'front-matter';
@@ -79,9 +80,53 @@ const BlogPost = () => {
     });
   };
 
+  // Use the static HTML page URL for sharing (better for social media crawlers)
+  const shareUrl = `https://ggcol.github.io/is-gian/blog/${slug}.html`;
+  const shareTitle = metadata?.title || 'Check out this article';
+
+  const handleShare = (platform) => {
+    let url = '';
+    switch(platform) {
+      case 'twitter':
+        url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`;
+        break;
+      case 'linkedin':
+        url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+        break;
+      case 'facebook':
+        url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+        break;
+      case 'copy':
+        navigator.clipboard.writeText(shareUrl);
+        alert('Link copied to clipboard!');
+        return;
+      default:
+        return;
+    }
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <div className={`blog-post-container ${isVisible ? 'blog--visible' : ''}`}>
-      <div className="blog-post">
+    <>
+      <Helmet>
+        <title>{metadata?.title || 'Blog Post'} | Gianluca Colombo</title>
+        <meta name="description" content={metadata?.excerpt || metadata?.title || 'Read this article on my blog'} />
+        <meta property="og:title" content={metadata?.title || 'Blog Post'} />
+        <meta property="og:description" content={metadata?.excerpt || metadata?.title || 'Read this article on my blog'} />
+        <meta property="og:url" content={shareUrl} />
+        <meta property="og:type" content="article" />
+        {metadata?.coverImage && (
+          <meta property="og:image" content={`https://ggcol.github.io/is-gian/content/blog/${slug}/${metadata.coverImage}`} />
+        )}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metadata?.title || 'Blog Post'} />
+        <meta name="twitter:description" content={metadata?.excerpt || metadata?.title || 'Read this article on my blog'} />
+        {metadata?.coverImage && (
+          <meta name="twitter:image" content={`https://ggcol.github.io/is-gian/content/blog/${slug}/${metadata.coverImage}`} />
+        )}
+      </Helmet>
+      <div className={`blog-post-container ${isVisible ? 'blog--visible' : ''}`}>
+        <div className="blog-post">
         <button onClick={() => navigate('/blog')} className="btn-back">
           ← Back to Blog
         </button>
@@ -135,9 +180,44 @@ const BlogPost = () => {
               {content}
             </ReactMarkdown>
           </div>
+
+          <div className="blog-post__share">
+            <h3>Share this article</h3>
+            <div className="blog-post__share-buttons">
+              <button 
+                onClick={() => handleShare('twitter')}
+                className="share-btn share-btn--twitter"
+                aria-label="Share on Twitter"
+              >
+                <i className="fab fa-twitter"></i>
+              </button>
+              <button 
+                onClick={() => handleShare('linkedin')}
+                className="share-btn share-btn--linkedin"
+                aria-label="Share on LinkedIn"
+              >
+                <i className="fab fa-linkedin"></i>
+              </button>
+              <button 
+                onClick={() => handleShare('facebook')}
+                className="share-btn share-btn--facebook"
+                aria-label="Share on Facebook"
+              >
+                <i className="fab fa-facebook"></i>
+              </button>
+              <button 
+                onClick={() => handleShare('copy')}
+                className="share-btn share-btn--copy"
+                aria-label="Copy link"
+              >
+                <i className="fas fa-link"></i>
+              </button>
+            </div>
+          </div>
         </article>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
