@@ -2,7 +2,7 @@
 title: "How to Authenticate GitHub Apps: A Practical Guide"
 date: "2025-04-01"
 tags: ["github", "auth", "apps", "github apps"]
-excerpt: "A short description that appears in the article card (optional)"
+excerpt: "A practical guide to GitHub client flow authentication"
 coverImage: "github-apps.png"
 ---
 
