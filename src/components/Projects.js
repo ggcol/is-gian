@@ -105,7 +105,7 @@ const Projects = () => {
       id: 1,
       title: "ASureBus",
       description: "Open source .NET library simplifying Azure Service Bus with APIs for publish/subscribe, message handlers, and sagas. Actively used in production. Built in C#, using ASB SDKs, distributed via NuGet.",
-      tags: [".NET", "Azure Service Bus", "Open Source", "Messaging"],
+      tags: [".NET", "Azure Service Bus", "Messaging", "Open Source"],
       image: process.env.PUBLIC_URL + "/images/project/oss/asurebus.png",
       link: "https://github.com/ggcol/ASureBus"
     },
@@ -116,7 +116,16 @@ const Projects = () => {
       tags: [".NET", "Game Development", "Console", "Open Source"],
       image: process.env.PUBLIC_URL + "/images/project/oss/console-invaded.png",
       link: "https://github.com/ggcol/console-invaded"
+    },
+    {
+      id: 3,
+      title: "Public Api #1: spell out numbers",
+      description: "A simple RESTful API that converts numeric values into their full word representation. Built with .NET Core 8 and hosted on Azure Function.",
+      tags: [".NET", "Azure Functions", "REST API", "Open Source"],
+      image: null,
+      link: "https://github.com/ggcol/SpellOutNumberAPI"
     }
+
   ];
 
   const personalProjects = [
@@ -140,11 +149,15 @@ const Projects = () => {
 
   const ProjectCard = ({ project }) => (
     <div className="project-card">
-      {project.image && (
-        <div className="project-card__image">
-          <img src={project.image} alt={project.title} />
-        </div>
-      )}
+      <div className="project-card__image">
+        {project.image && (
+          <img 
+            src={project.image} 
+            alt={project.title}
+            onError={(e) => { e.target.style.display = 'none'; }}
+          />
+        )}
+      </div>
       <div className="project-card__content">
         <h3 className="project-card__title">{project.title}</h3>
         <p className="project-card__description">{project.description}</p>
