@@ -2,7 +2,9 @@ import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import './App.css';
+import './components/Toast.css';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { ToastProvider } from './contexts/ToastContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -33,9 +35,10 @@ const HomePage = () => (
 function App() {
   return (
     <HelmetProvider>
-      <ThemeProvider>
-        <HashRouter>
-          <div className="App">
+      <ToastProvider>
+        <ThemeProvider>
+          <HashRouter>
+            <div className="App">
           <Header />
           <main>
             <Routes>
@@ -48,11 +51,12 @@ function App() {
               )}
             </Routes>
           </main>
-          <Footer />
-          <UnderConstruction />
-          </div>
-        </HashRouter>
-      </ThemeProvider>
+            <Footer />
+            <UnderConstruction />
+            </div>
+          </HashRouter>
+        </ThemeProvider>
+      </ToastProvider>
     </HelmetProvider>
   );
 }

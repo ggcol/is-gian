@@ -5,11 +5,13 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import frontMatter from 'front-matter';
 import articles from '../../config/articles';
+import { useToast } from '../../contexts/ToastContext';
 import './Blog.css';
 
 const BlogPost = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const toast = useToast();
   const [content, setContent] = useState('');
   const [metadata, setMetadata] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -98,7 +100,7 @@ const BlogPost = () => {
         break;
       case 'copy':
         navigator.clipboard.writeText(shareUrl);
-        alert('Link copied to clipboard!');
+        toast.success('Link copied to clipboard!');
         return;
       default:
         return;
