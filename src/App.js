@@ -1,6 +1,8 @@
 import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { AppInsightsContext } from '@microsoft/applicationinsights-react-js';
+import { reactPlugin } from './config/appInsights';
 import './App.css';
 import './components/Toast.css';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -34,30 +36,32 @@ const HomePage = () => (
 
 function App() {
   return (
-    <HelmetProvider>
-      <ToastProvider>
-        <ThemeProvider>
-          <HashRouter>
-            <div className="App">
-          <Header />
-          <main>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              {featureFlags.blog && (
-                <>
-                  <Route path="/blog" element={<BlogList />} />
-                  <Route path="/blog/:slug" element={<BlogPost />} />
-                </>
-              )}
-            </Routes>
-          </main>
-            <Footer />
-            <UnderConstruction />
-            </div>
-          </HashRouter>
-        </ThemeProvider>
-      </ToastProvider>
-    </HelmetProvider>
+    <AppInsightsContext.Provider value={reactPlugin}>
+      <HelmetProvider>
+        <ToastProvider>
+          <ThemeProvider>
+            <HashRouter>
+              <div className="App">
+            <Header />
+            <main>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                {featureFlags.blog && (
+                  <>
+                    <Route path="/blog" element={<BlogList />} />
+                    <Route path="/blog/:slug" element={<BlogPost />} />
+                  </>
+                )}
+              </Routes>
+            </main>
+              <Footer />
+              <UnderConstruction />
+              </div>
+            </HashRouter>
+          </ThemeProvider>
+        </ToastProvider>
+      </HelmetProvider>
+    </AppInsightsContext.Provider>
   );
 }
 
