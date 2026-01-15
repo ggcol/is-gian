@@ -5,7 +5,7 @@ const reactPlugin = new ReactPlugin();
 
 const appInsights = new ApplicationInsights({
   config: {
-    connectionString: `InstrumentationKey=${process.env.REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY}`,
+    instrumentationKey: process.env.REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY,
     extensions: [reactPlugin],
     enableAutoRouteTracking: true,
     disableAjaxTracking: false,
@@ -20,5 +20,9 @@ const appInsights = new ApplicationInsights({
 });
 
 appInsights.loadAppInsights();
+
+// Log to confirm initialization
+console.log('Application Insights initialized with key:', 
+  process.env.REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY ? 'Key found' : 'Key missing');
 
 export { reactPlugin, appInsights };
